@@ -88,10 +88,13 @@ Use [`submissions/SUBMISSION_TEMPLATE/`](submissions/SUBMISSION_TEMPLATE) as you
 
 ## ✅ Eligibility
 
-- Open to legal residents of the fifty (50) United States and the District of Columbia.
-- Must be **18 or older** (or the age of majority in your state, whichever is greater).
-- **Not eligible:** employees, officers, directors, contractors, and agents of Faraday Future and its affiliates, and their immediate family / household members.
-- Limit **one (1) entry per person per day**. Void where prohibited.
+To enter, participants must meet all of the following requirements:
+
+- Must be **18 or older** (or the age of majority in your country/region, whichever is greater).
+- Must not be a resident of Cuba, Iran, North Korea, Syria, or Ukraine.
+- Must not be an employee, officer, director, contractor, or agent of Faraday Future and its affiliates, or an immediate family / household member of any such person.
+
+The contest is open to eligible participants worldwide; void where prohibited or restricted by law.
 
 See the **official rules** for the complete and binding terms.
 
