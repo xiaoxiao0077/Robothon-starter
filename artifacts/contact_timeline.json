@@ -1,0 +1,180 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "total_contacts": 12,
+  "contacts": [
+    {
+      "task_id": 1,
+      "contact_start": 0.0,
+      "contact_end": 2.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "force_n": 2.056,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 2,
+      "contact_start": 3.0,
+      "contact_end": 5.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "force_n": 3.347,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 3,
+      "contact_start": 6.0,
+      "contact_end": 8.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle"
+      ],
+      "force_n": 4.69,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 4,
+      "contact_start": 9.0,
+      "contact_end": 11.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.868,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 5,
+      "contact_start": 12.0,
+      "contact_end": 14.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 3.91,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 6,
+      "contact_start": 15.0,
+      "contact_end": 17.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.106,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 7,
+      "contact_start": 18.0,
+      "contact_end": 20.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 3.058,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 8,
+      "contact_start": 21.0,
+      "contact_end": 23.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.157,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 9,
+      "contact_start": 24.0,
+      "contact_end": 26.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 4.615,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 10,
+      "contact_start": 27.0,
+      "contact_end": 29.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.275,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 11,
+      "contact_start": 30.0,
+      "contact_end": 32.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.128,
+      "slip_events": 0,
+      "recovery_time_ms": 0
+    },
+    {
+      "task_id": 12,
+      "contact_start": 33.0,
+      "contact_end": 35.9,
+      "fingers_involved": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "force_n": 1.555,
+      "slip_events": 1,
+      "recovery_time_ms": 4.0
+    }
+  ]
+}

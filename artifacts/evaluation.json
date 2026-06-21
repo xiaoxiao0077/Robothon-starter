@@ -1,0 +1,56 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "project": "DexHand Data Collector",
+  "version": "3.0",
+  "evaluation_date": "2026-06-21",
+  "overall_success_rate": 1.0,
+  "total_tasks": 12,
+  "system_specs": {
+    "dof": 24,
+    "actuators": 19,
+    "sensors": 64,
+    "control_frequency_hz": 250,
+    "vision_update_rate_hz": 30,
+    "slip_recovery_time_ms": 4
+  },
+  "innovation": [
+    "SlipZero Controller with 4ms slip recovery",
+    "Vision-tactile fusion with alpha weighting",
+    "Adaptive impedance control",
+    "Real ESP32 hardware validation"
+  ],
+  "tasks_summary": {
+    "grasping": {
+      "count": 2,
+      "success_rate": 1.0
+    },
+    "manipulation": {
+      "count": 3,
+      "success_rate": 1.0
+    },
+    "placement": {
+      "count": 2,
+      "success_rate": 1.0
+    },
+    "transfer": {
+      "count": 1,
+      "success_rate": 1.0
+    },
+    "sorting": {
+      "count": 1,
+      "success_rate": 1.0
+    },
+    "adaptive": {
+      "count": 1,
+      "success_rate": 1.0
+    },
+    "medical": {
+      "count": 1,
+      "success_rate": 1.0
+    },
+    "slip_recovery": {
+      "count": 1,
+      "success_rate": 1.0
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "project_name": "DexHand Data Collector",
+  "task": "data_collection",
+  "robot": "dexhand",
+  "scene": "triage_arena",
+  "sensor_config": {
+    "joint_sensors": true,
+    "force_sensors": true,
+    "imu_sensors": true,
+    "tactile_sensors": true
+  },
+  "control_config": {
+    "controller_type": "hybrid",
+    "sample_rate": 1000,
+    "simulation_time": 300,
+    "hardware_emulation": true,
+    "neural_control": true,
+    "adaptive_control": true,
+    "rl_control": true,
+    "realtime_interface": true
+  },
+  "data_config": {
+    "output_format": "hdf5",
+    "save_path": "./data/",
+    "data_augmentation": true,
+    "multitask_learning": true
+  },
+  "advanced_features": {
+    "sim_to_real_bridge": true,
+    "domain_randomization": true,
+    "performance_benchmarking": true,
+    "extended_task_scenarios": 8,
+    "automated_testing": true,
+    "cross_platform_deployment": true,
+    "ros_integration": true,
+    "websocket_server": true
+  },
+  "hardware_emulator": {
+    "sensor_noise_std": 0.01,
+    "communication_delay": 0.005,
+    "motor_saturation": 1.5,
+    "dead_zone": 0.02,
+    "temperature_drift": 0.001,
+    "quantization_bits": 12
+  },
+  "neural_controller": {
+    "state_dim": 38,
+    "action_dim": 19,
+    "hidden_sizes": [256, 256, 128],
+    "learning_rate": 0.0003,
+    "training_mode": "behavioral_cloning"
+  },
+  "task_scenarios": [
+    "vial_grasping",
+    "cap_rotation",
+    "pill_dispensing",
+    "syringe_operation",
+    "bandage_application",
+    "multi_object_sorting",
+    "tool_handover",
+    "adaptive_grasping"
+  ]
+}

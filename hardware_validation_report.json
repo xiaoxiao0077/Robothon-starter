@@ -1,0 +1,921 @@
+{
+  "total_tests": 7,
+  "passed_tests": 6,
+  "overall_status": "PARTIAL",
+  "results": {
+    "actuator_response": {
+      "test_name": "Actuator Response",
+      "status": "PASS",
+      "actuator_count": 19,
+      "avg_response_ms": 9.578292415226706,
+      "max_response_ms": 12.728312750805227,
+      "all_responsive": true,
+      "details": [
+        {
+          "actuator_id": 0,
+          "response_time_ms": 6.912062670469127,
+          "max_torque_nm": 500.0,
+          "rise_time_ms": 8.751209325102343,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 1,
+          "response_time_ms": 5.004697959940683,
+          "max_torque_nm": 500.0,
+          "rise_time_ms": 8.734921675371975,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 2,
+          "response_time_ms": 10.568055072459797,
+          "max_torque_nm": 500.00040135156655,
+          "rise_time_ms": 13.717669481774713,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 3,
+          "response_time_ms": 12.728312750805227,
+          "max_torque_nm": 499.9396830141385,
+          "rise_time_ms": 10.991748804221526,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 4,
+          "response_time_ms": 11.86649891673094,
+          "max_torque_nm": 520.5504556411729,
+          "rise_time_ms": 14.450939608940299,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 5,
+          "response_time_ms": 10.974195905635058,
+          "max_torque_nm": 1.3871444437437828,
+          "rise_time_ms": 11.798317050274495,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 6,
+          "response_time_ms": 9.49626519228434,
+          "max_torque_nm": 497.2311408278455,
+          "rise_time_ms": 9.508003861466388,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 7,
+          "response_time_ms": 8.10584970018581,
+          "max_torque_nm": 500.9595654251329,
+          "rise_time_ms": 13.009799160920725,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 8,
+          "response_time_ms": 10.821238411867787,
+          "max_torque_nm": 592.3255418984538,
+          "rise_time_ms": 10.141192419025074,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 9,
+          "response_time_ms": 5.468489103208691,
+          "max_torque_nm": 1244.6741331652133,
+          "rise_time_ms": 8.643043536310797,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 10,
+          "response_time_ms": 11.93711699909776,
+          "max_torque_nm": 324626.9049654642,
+          "rise_time_ms": 14.740059833859785,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 11,
+          "response_time_ms": 9.305857640447519,
+          "max_torque_nm": 499.3358581936637,
+          "rise_time_ms": 11.034085846252516,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 12,
+          "response_time_ms": 10.214229879595377,
+          "max_torque_nm": 672.5588918284179,
+          "rise_time_ms": 11.164873027527818,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 13,
+          "response_time_ms": 7.454566587603095,
+          "max_torque_nm": 1.2748088403615834,
+          "rise_time_ms": 13.454250565651728,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 14,
+          "response_time_ms": 11.9478801709345,
+          "max_torque_nm": 515.4161549887982,
+          "rise_time_ms": 8.436709816232034,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 15,
+          "response_time_ms": 8.132819829182678,
+          "max_torque_nm": 500.0,
+          "rise_time_ms": 14.557121491310244,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 16,
+          "response_time_ms": 11.843788233007572,
+          "max_torque_nm": 474.5556576390475,
+          "rise_time_ms": 14.465771520596896,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 17,
+          "response_time_ms": 9.158390406720489,
+          "max_torque_nm": 1619.7929842242847,
+          "rise_time_ms": 8.692207555843334,
+          "status": "PASS"
+        },
+        {
+          "actuator_id": 18,
+          "response_time_ms": 10.04724045913093,
+          "max_torque_nm": 117792.00455939322,
+          "rise_time_ms": 14.598787427483519,
+          "status": "PASS"
+        }
+      ]
+    },
+    "sensor_calibration": {
+      "test_name": "Sensor Calibration",
+      "status": "PASS",
+      "sensor_count": 57,
+      "avg_accuracy_pct": 99.71938493791103,
+      "all_calibrated": true,
+      "details": [
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 0,
+          "noise_std": 0.009075768599439944,
+          "accuracy_pct": 99.7289412690424,
+          "calibration_offset": -0.005303218505602032,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 1,
+          "noise_std": 0.00807546652826606,
+          "accuracy_pct": 99.67737886788147,
+          "calibration_offset": 0.0019207628025241646,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 2,
+          "noise_std": 0.006648184635765306,
+          "accuracy_pct": 99.5693791209868,
+          "calibration_offset": -0.007754484012146037,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 3,
+          "noise_std": 0.0020558297564272276,
+          "accuracy_pct": 99.67829863227384,
+          "calibration_offset": 0.006041474103942604,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 4,
+          "noise_std": 0.00783229280145529,
+          "accuracy_pct": 99.53211011451833,
+          "calibration_offset": -0.0064906980584000466,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 5,
+          "noise_std": 0.0018547615058877227,
+          "accuracy_pct": 99.6235340282991,
+          "calibration_offset": -0.0064789494766118155,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 6,
+          "noise_std": 0.009650495557663712,
+          "accuracy_pct": 99.80336820769926,
+          "calibration_offset": -0.006445039872728884,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 7,
+          "noise_std": 0.0040149270771484575,
+          "accuracy_pct": 99.89904905230973,
+          "calibration_offset": 0.0011907313938154564,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 8,
+          "noise_std": 0.002545878704387907,
+          "accuracy_pct": 99.56006916564426,
+          "calibration_offset": 0.004189853202642466,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 9,
+          "noise_std": 0.007029720852241,
+          "accuracy_pct": 99.59272196143192,
+          "calibration_offset": 0.009849796394937002,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 10,
+          "noise_std": 0.006248976098288819,
+          "accuracy_pct": 99.68306463796954,
+          "calibration_offset": 0.004886149884713722,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 11,
+          "noise_std": 0.0031536129127752,
+          "accuracy_pct": 99.65840633027278,
+          "calibration_offset": 0.006101442557855026,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 12,
+          "noise_std": 0.00824044884885312,
+          "accuracy_pct": 99.7578507344331,
+          "calibration_offset": -0.007693100301408495,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 13,
+          "noise_std": 0.007990570410747973,
+          "accuracy_pct": 99.8055826715034,
+          "calibration_offset": -0.0016581325729707903,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 14,
+          "noise_std": 0.009293260673653356,
+          "accuracy_pct": 99.83850221678861,
+          "calibration_offset": -0.008949595490125457,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 15,
+          "noise_std": 0.007990477691859652,
+          "accuracy_pct": 99.61902514506411,
+          "calibration_offset": -0.007635894608966966,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 16,
+          "noise_std": 0.008739070208069142,
+          "accuracy_pct": 99.70719852722223,
+          "calibration_offset": 0.005035302276042654,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 17,
+          "noise_std": 0.009272077700056825,
+          "accuracy_pct": 99.83289733821958,
+          "calibration_offset": -0.005232547937907284,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 18,
+          "noise_std": 0.009638862757904026,
+          "accuracy_pct": 99.76270744778228,
+          "calibration_offset": -0.00841216256645298,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 19,
+          "noise_std": 0.003829506770342631,
+          "accuracy_pct": 99.69749629359855,
+          "calibration_offset": 0.0006591463098132386,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 20,
+          "noise_std": 0.004679044343687039,
+          "accuracy_pct": 99.80844904691193,
+          "calibration_offset": -0.0023187379163081426,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 21,
+          "noise_std": 0.008735912651998426,
+          "accuracy_pct": 99.84384497319022,
+          "calibration_offset": -0.00824913735644453,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 22,
+          "noise_std": 0.009292773420174573,
+          "accuracy_pct": 99.51208137269883,
+          "calibration_offset": 0.0036996920862601753,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_pos",
+          "sensor_id": 23,
+          "noise_std": 0.006764909950937916,
+          "accuracy_pct": 99.80556501072948,
+          "calibration_offset": -0.00846290964557805,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 0,
+          "noise_std": 0.007574483095047225,
+          "accuracy_pct": 99.76427790419817,
+          "calibration_offset": 0.00389280684251375,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 1,
+          "noise_std": 0.0024627911025874244,
+          "accuracy_pct": 99.78738108659574,
+          "calibration_offset": -0.006326817789427825,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 2,
+          "noise_std": 0.00906659135610581,
+          "accuracy_pct": 99.82998390230115,
+          "calibration_offset": -0.004174253211665317,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 3,
+          "noise_std": 0.0071780940997059825,
+          "accuracy_pct": 99.71420488171292,
+          "calibration_offset": 0.0033426935483909254,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 4,
+          "noise_std": 0.004113687978620867,
+          "accuracy_pct": 99.68453164979381,
+          "calibration_offset": -0.0003352624073368893,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 5,
+          "noise_std": 0.004415719902540691,
+          "accuracy_pct": 99.8699048477986,
+          "calibration_offset": 0.0016203149388564937,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 6,
+          "noise_std": 0.0042749301719381474,
+          "accuracy_pct": 99.89744679323803,
+          "calibration_offset": -0.001181031139964676,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 7,
+          "noise_std": 0.00827942898046426,
+          "accuracy_pct": 99.56273617642184,
+          "calibration_offset": -0.0042124392264066834,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 8,
+          "noise_std": 0.009909593358134915,
+          "accuracy_pct": 99.89791116333258,
+          "calibration_offset": 0.004981646987648379,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 9,
+          "noise_std": 0.0061520751096358775,
+          "accuracy_pct": 99.6297161962111,
+          "calibration_offset": -0.0014778956341914232,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 10,
+          "noise_std": 0.005044769846976836,
+          "accuracy_pct": 99.85768352575894,
+          "calibration_offset": 0.00660704957447234,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 11,
+          "noise_std": 0.006167679406201102,
+          "accuracy_pct": 99.88683830967672,
+          "calibration_offset": -0.00806528145697056,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 12,
+          "noise_std": 0.006254607476703608,
+          "accuracy_pct": 99.89630664514665,
+          "calibration_offset": 0.004086876941671836,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 13,
+          "noise_std": 0.007403783156980404,
+          "accuracy_pct": 99.79120477650841,
+          "calibration_offset": -0.007478534162488839,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 14,
+          "noise_std": 0.002338693400885078,
+          "accuracy_pct": 99.76647155327947,
+          "calibration_offset": 0.009599255718611614,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 15,
+          "noise_std": 0.005885719011992491,
+          "accuracy_pct": 99.73547452377773,
+          "calibration_offset": -0.006338630750043976,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 16,
+          "noise_std": 0.003650060865294927,
+          "accuracy_pct": 99.5330408014886,
+          "calibration_offset": -0.005619767216409997,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 17,
+          "noise_std": 0.0093274721702988,
+          "accuracy_pct": 99.59693186767973,
+          "calibration_offset": -0.0007620616801361189,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 18,
+          "noise_std": 0.0050329106530686,
+          "accuracy_pct": 99.70391935089008,
+          "calibration_offset": 0.005405173913794992,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 19,
+          "noise_std": 0.004157789508375059,
+          "accuracy_pct": 99.50277718245049,
+          "calibration_offset": 0.0014856787804644785,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 20,
+          "noise_std": 0.0011333627701126407,
+          "accuracy_pct": 99.88777081614185,
+          "calibration_offset": 0.004185229045344779,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 21,
+          "noise_std": 0.0068705505093955635,
+          "accuracy_pct": 99.63612427684937,
+          "calibration_offset": 0.007650902036491014,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 22,
+          "noise_std": 0.003187894348240943,
+          "accuracy_pct": 99.78307840782168,
+          "calibration_offset": -0.004142203115320741,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "joint_vel",
+          "sensor_id": 23,
+          "noise_std": 0.004422203777182794,
+          "accuracy_pct": 99.819184688212,
+          "calibration_offset": -0.008239994867077407,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "touch",
+          "sensor_id": 0,
+          "noise_std": 0.0024433336357833225,
+          "accuracy_pct": 99.71258891131946,
+          "calibration_offset": -0.008939237020487292,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "touch",
+          "sensor_id": 1,
+          "noise_std": 0.005877282632973556,
+          "accuracy_pct": 99.60351471518798,
+          "calibration_offset": -0.0032720550012212057,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "touch",
+          "sensor_id": 2,
+          "noise_std": 0.003445864756531712,
+          "accuracy_pct": 99.70638319770259,
+          "calibration_offset": 0.0013859458720543658,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "touch",
+          "sensor_id": 3,
+          "noise_std": 0.008695322047465474,
+          "accuracy_pct": 99.63827565800581,
+          "calibration_offset": -0.000592428974652082,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "touch",
+          "sensor_id": 4,
+          "noise_std": 0.00469005886686495,
+          "accuracy_pct": 99.73604926152608,
+          "calibration_offset": -0.0018291659487897991,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "force",
+          "sensor_id": 0,
+          "noise_std": 0.005602093240812233,
+          "accuracy_pct": 99.60101759544061,
+          "calibration_offset": -0.005014881439699963,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "force",
+          "sensor_id": 1,
+          "noise_std": 0.0031372183720929296,
+          "accuracy_pct": 99.68491506097696,
+          "calibration_offset": 0.008591329823873362,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "force",
+          "sensor_id": 2,
+          "noise_std": 0.008906791528927562,
+          "accuracy_pct": 99.7429377356998,
+          "calibration_offset": 0.0020444657779453874,
+          "status": "PASS"
+        },
+        {
+          "sensor_type": "imu",
+          "sensor_id": 0,
+          "noise_std": 0.007024022824602714,
+          "accuracy_pct": 99.54683583131231,
+          "calibration_offset": 0.006804626170047951,
+          "status": "PASS"
+        }
+      ]
+    },
+    "communication_latency": {
+      "test_name": "Communication Latency",
+      "status": "PASS",
+      "avg_latency_ms": 2.9443811184206017,
+      "max_latency_ms": 5.543456049793849,
+      "min_latency_ms": 0.4564466148444104,
+      "jitter_ms": 1.2822986586956244,
+      "protocol": "UDP/TCP",
+      "details": [
+        0.6015744202173225,
+        1.5346940007840273,
+        1.6688659932410395,
+        3.037787688693175,
+        4.499653177047559,
+        1.5634980070578757,
+        1.670443193336706,
+        2.820248668561667,
+        2.9801673583907684,
+        3.9524090460246546,
+        2.633138182285145,
+        4.627226132936552,
+        2.1262396561406134,
+        1.6934707312939152,
+        2.4685080978312754,
+        1.0001569274879434,
+        4.856861296809484,
+        0.7848359862545069,
+        1.6789323968682306,
+        3.9259331135384055,
+        3.2549786773491167,
+        2.1570169362445517,
+        4.627528568645639,
+        5.543456049793849,
+        4.440503770601116,
+        1.943668051844882,
+        1.6455837633031773,
+        2.324088166295956,
+        2.3979335074377337,
+        4.6719040012750455,
+        2.596394899434734,
+        2.74181813221728,
+        1.605113729472456,
+        4.157224063690074,
+        1.2524984045728513,
+        1.6982027792380086,
+        2.4030047038165634,
+        3.36749214178963,
+        1.9190713851144199,
+        4.421593748144538,
+        4.155760254666319,
+        4.527874950590655,
+        3.946909018628622,
+        4.542611721454519,
+        1.5458360040992605,
+        4.476795707019165,
+        4.061457530520009,
+        3.1599570329812736,
+        4.192493807768374,
+        3.1944839034865424,
+        3.5940394952034893,
+        4.899793899004754,
+        1.0026561739029904,
+        3.041650409797359,
+        4.183998187718358,
+        0.8987148485803405,
+        3.5578466570168734,
+        4.264799690596358,
+        2.4115607272729553,
+        1.530696215637009,
+        2.2716658799945404,
+        3.70894306244179,
+        3.164415317230598,
+        4.649928765652092,
+        4.250314578866563,
+        3.6866911648564713,
+        3.412675539143651,
+        4.0047258012510625,
+        2.621927605630619,
+        3.52476646762585,
+        1.6175241849660107,
+        4.598722758192153,
+        4.202207801148664,
+        0.8069782334864082,
+        1.059255108680188,
+        2.1619912857654247,
+        1.7970940469625867,
+        2.0269004802025643,
+        3.1183284776330766,
+        4.813678821834605,
+        4.55640176390885,
+        3.5335304920599535,
+        2.448981689710217,
+        0.8156525794163276,
+        1.1914890896541208,
+        2.2112654574109163,
+        2.1812440096717025,
+        3.711974246019061,
+        3.4991629566854012,
+        2.8284374978972875,
+        5.182117339260838,
+        3.477615305232604,
+        4.282736567810023,
+        1.5111450414082375,
+        3.494920100513395,
+        0.4564466148444104,
+        1.1728473549988077,
+        3.1822874210405163,
+        1.8745084390711635,
+        4.842956702853604
+      ]
+    },
+    "grasp_force_precision": {
+      "test_name": "Grasp Force Precision",
+      "status": "PASS",
+      "avg_force_n": 8.470330346998798,
+      "force_variance_pct": 24.060181168575294,
+      "precision_score": 75.9398188314247,
+      "force_range_n": [
+        5.048211895117689,
+        11.97544286509382
+      ],
+      "details": [
+        7.039792173529362,
+        5.687352006248418,
+        6.025070808239059,
+        5.227546891174531,
+        9.195218033774797,
+        6.3429349686993195,
+        7.153091154231236,
+        7.765059260541013,
+        9.230559905828088,
+        9.49246935453069,
+        7.165621177178575,
+        5.625053023724823,
+        5.623217437179195,
+        5.100089895068832,
+        9.461392709411662,
+        11.18284917471013,
+        7.628558564011418,
+        8.26580836938624,
+        6.418790184018493,
+        9.099500801901986,
+        10.076292029511295,
+        11.454304762300408,
+        10.70429657459198,
+        11.024488950967704,
+        11.312415166231803,
+        5.348106804416116,
+        10.830608741077949,
+        9.734207917973812,
+        10.427253891727016,
+        10.99385244235657,
+        9.47818965024717,
+        8.849798530737816,
+        7.882473718188368,
+        10.622335180780361,
+        7.325124042583655,
+        8.400968942106509,
+        5.809092255072068,
+        11.21685047463518,
+        9.14308045479592,
+        6.403201952088039,
+        10.44999278204484,
+        9.877702143479805,
+        10.64484650351944,
+        5.18856431631564,
+        11.001930985699005,
+        10.230611904211763,
+        5.89075270816131,
+        8.622859196277188,
+        10.591651543123746,
+        9.077726633744689,
+        11.97544286509382,
+        7.827867996847743,
+        6.20914225554974,
+        10.35812418831637,
+        8.468573213840344,
+        9.999411524108792,
+        8.89792260314309,
+        10.92967740413992,
+        6.843716423475064,
+        10.307707913909336,
+        9.511272769077884,
+        6.120370111373917,
+        10.870406310522233,
+        5.249976694699251,
+        6.512876275001949,
+        5.410068931569588,
+        8.415369855699838,
+        9.34181148599426,
+        9.406195856289663,
+        11.105860750509478,
+        6.663619970105469,
+        8.437982217055621,
+        9.4782957760039,
+        10.240059824991476,
+        5.07759758947239,
+        9.99381280627194,
+        5.048211895117689,
+        6.6366794075251825,
+        5.361784424159234,
+        8.800905236147685,
+        11.776855208038283,
+        7.625061878546963,
+        5.730025156575044,
+        10.244382186524565,
+        9.4524486908386,
+        9.164550489000932,
+        5.7984339743213225,
+        9.772494324214154,
+        10.873804763979734,
+        8.77486375685984,
+        10.582900928389018,
+        9.139704044867758,
+        10.552079748873014,
+        7.172236364841403,
+        5.23420291834633,
+        5.39715690902258,
+        8.993235016279005,
+        5.889952202391986,
+        10.789676605808516,
+        7.224667863792886
+      ]
+    },
+    "sim_to_real_consistency": {
+      "test_name": "Sim-to-Real Consistency",
+      "status": "PASS",
+      "domain_randomization": {
+        "friction_range": [
+          0.7,
+          1.3
+        ],
+        "mass_range": [
+          0.9,
+          1.1
+        ],
+        "damping_range": [
+          0.8,
+          1.2
+        ],
+        "motor_noise_range": [
+          0.95,
+          1.05
+        ]
+      },
+      "mean_transfer_error": 0.037927699389269334,
+      "max_transfer_error": 0.05891323723356426,
+      "consistency_score": 96.20723006107306,
+      "details": [
+        0.03567719753294494,
+        0.026468632419128994,
+        0.03262878272811539,
+        0.04588725947643674,
+        0.030954444205348104,
+        0.03315919551451809,
+        0.03780542886928184,
+        0.023421539739315777,
+        0.054361276174039116,
+        0.05891323723356426
+      ]
+    },
+    "joint_limit_compliance": {
+      "test_name": "Joint Limit Compliance",
+      "status": "FAIL",
+      "total_joints": 19,
+      "violations": 10,
+      "all_compliant": false,
+      "safety_margin_deg": 5.7,
+      "details": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "system_integration": {
+      "test_name": "System Integration",
+      "status": "PASS",
+      "control_loop_hz": 1000,
+      "sensor_updates": 1000,
+      "actuator_updates": 1000,
+      "sensor_fusion": true,
+      "real_time_capability": true,
+      "\u95ed\u73af\u5ef6\u8fdf_ms": 1.0,
+      "details": {
+        "total_steps": 1000,
+        "sensor_rate_hz": 1000,
+        "actuator_rate_hz": 1000
+      }
+    }
+  },
+  "timestamp": "2026-06-21 20:12:23"
+}

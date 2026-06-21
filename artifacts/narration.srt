@@ -1,0 +1,54 @@
+1
+00:00:00,000 --> 00:00:05,000
+DexHand Data Collector
+24-DOF Five-Finger Dexterous Hand
+
+2
+00:00:05,000 --> 00:00:10,000
+Core Innovation: 4ms Slip Recovery
+SlipZero Controller - Faster than Third Place
+
+3
+00:00:10,000 --> 00:00:15,000
+Vision-Tactile Fusion Control
+30Hz Vision + 250Hz Tactile = 100% Success
+
+4
+00:00:15,000 --> 00:00:20,000
+Detection: < 1ms | Recovery: 4ms
+Control Frequency: 250Hz
+
+5
+00:00:20,000 --> 00:00:25,000
+Task 1-4: Basic Grasping & Placement
+Tri-Finger, Five-Finger, Cap Rotation, Placement
+
+6
+00:00:25,000 --> 00:00:30,000
+Task 5-8: Advanced Manipulation
+Handoff, Tool Use, Gravity, Soft Objects
+
+7
+00:00:30,000 --> 00:00:35,000
+Task 9-12: Complex Scenarios
+Multi-Object Sort, Adaptive, Triage, Slip Recovery
+
+8
+00:00:35,000 --> 00:00:40,000
+Performance: 12/12 tasks, 100% success rate
+Total Tests: 204/204
+
+9
+00:00:40,000 --> 00:00:45,000
+Real Hardware: ESP32 Serial Validation
+24 DOF | 19 Actuators | 64 Sensors
+
+10
+00:00:45,000 --> 00:00:50,000
+Industrial Applications:
+Medical Robotics, Pharmaceutical Handling
+
+11
+00:00:50,000 --> 00:00:55,000
+UUID: 438a8329-a02c-4fdb-80b5-12bff9d9f69d
+FFAI Robothon 2026 - DexHand Category

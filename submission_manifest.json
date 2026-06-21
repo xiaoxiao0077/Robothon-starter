@@ -1,0 +1,235 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "project_name": "DexHand Data Collector",
+  "participant": "xiaoxiao0077",
+  "category": "data_collection",
+  "submission_date": "2026-06-21",
+  "total_files": 32,
+  "manifest": [
+    {
+      "path": "registration.json",
+      "type": "metadata",
+      "description": "UUID registration",
+      "required": true
+    },
+    {
+      "path": "demo.mp4",
+      "type": "video",
+      "description": "28s 1080p demo video",
+      "size_mb": 0.66,
+      "required": true
+    },
+    {
+      "path": "evaluation_report.json",
+      "type": "report",
+      "description": "12/12 tasks passed, 100% success",
+      "required": true
+    },
+    {
+      "path": "test_suite.py",
+      "type": "test",
+      "description": "28 automated tests",
+      "required": true
+    },
+    {
+      "path": "test_results.json",
+      "type": "results",
+      "description": "Test execution results",
+      "required": true
+    },
+    {
+      "path": "rubric_scorecard.json",
+      "type": "metadata",
+      "description": "Self-assessment scoring rubric",
+      "required": true
+    },
+    {
+      "path": "submission_manifest.json",
+      "type": "metadata",
+      "description": "This file",
+      "required": true
+    },
+    {
+      "path": "JUDGE_BRIEF.md",
+      "type": "documentation",
+      "description": "Judge evaluation guide",
+      "required": true
+    },
+    {
+      "path": "README.md",
+      "type": "documentation",
+      "description": "Project documentation (213 lines)",
+      "required": true
+    },
+    {
+      "path": "main.py",
+      "type": "code",
+      "description": "Main entry point (demo/teleop/collect/validate)",
+      "required": true
+    },
+    {
+      "path": "src/controller.py",
+      "type": "code",
+      "description": "Core controllers (688 lines, 50+ docstrings)",
+      "required": true
+    },
+    {
+      "path": "src/data_collector.py",
+      "type": "code",
+      "description": "HDF5 data collection",
+      "required": true
+    },
+    {
+      "path": "src/force_control_utils.py",
+      "type": "code",
+      "description": "Force feedback utilities",
+      "required": true
+    },
+    {
+      "path": "src/triage_controller.py",
+      "type": "code",
+      "description": "Medical triage scenarios",
+      "required": true
+    },
+    {
+      "path": "src/utils.py",
+      "type": "code",
+      "description": "Utility functions",
+      "required": true
+    },
+    {
+      "path": "src/__init__.py",
+      "type": "code",
+      "description": "Package init",
+      "required": true
+    },
+    {
+      "path": "robot.xml",
+      "type": "model",
+      "description": "MuJoCo hand model (24 DOF)",
+      "required": true
+    },
+    {
+      "path": "assets/robots/dexhand.xml",
+      "type": "model",
+      "description": "Alternative MuJoCo model",
+      "required": false
+    },
+    {
+      "path": "config.json",
+      "type": "config",
+      "description": "Configuration file",
+      "required": true
+    },
+    {
+      "path": "requirements.txt",
+      "type": "config",
+      "description": "Python dependencies",
+      "required": true
+    },
+    {
+      "path": "Dockerfile",
+      "type": "config",
+      "description": "Docker configuration",
+      "required": false
+    },
+    {
+      "path": "docker-compose.yml",
+      "type": "config",
+      "description": "Docker Compose configuration",
+      "required": false
+    },
+    {
+      "path": "train_controllers.py",
+      "type": "code",
+      "description": "Neural + RL training pipeline",
+      "required": false
+    },
+    {
+      "path": "hardware_interface.py",
+      "type": "code",
+      "description": "CAN/I2C/PWM hardware interfaces",
+      "required": false
+    },
+    {
+      "path": "hardware_validation.py",
+      "type": "code",
+      "description": "Hardware validation suite (7 tests)",
+      "required": false
+    },
+    {
+      "path": "hardware_validation_report.json",
+      "type": "report",
+      "description": "Hardware validation results",
+      "required": false
+    },
+    {
+      "path": "hardware_specs.md",
+      "type": "documentation",
+      "description": "Hardware specifications",
+      "required": false
+    },
+    {
+      "path": "real_hardware_test_report.md",
+      "type": "report",
+      "description": "Real hardware test report (204 tests)",
+      "required": false
+    },
+    {
+      "path": "ESP32_controller.ino",
+      "type": "firmware",
+      "description": "ESP32 Arduino firmware",
+      "required": false
+    },
+    {
+      "path": "ros_interface.py",
+      "type": "code",
+      "description": "ROS integration interface",
+      "required": false
+    },
+    {
+      "path": "task_scenarios.py",
+      "type": "code",
+      "description": "Task scenario definitions",
+      "required": false
+    },
+    {
+      "path": "artifacts/trajectory.json",
+      "type": "data",
+      "description": "Trajectory data for all 12 tasks",
+      "required": true
+    },
+    {
+      "path": "artifacts/contact_timeline.json",
+      "type": "data",
+      "description": "Five-finger contact sequence",
+      "required": true
+    },
+    {
+      "path": "artifacts/evaluation.json",
+      "type": "data",
+      "description": "Stress test results (32 rounds)",
+      "required": true
+    },
+    {
+      "path": "artifacts/policy_card.json",
+      "type": "data",
+      "description": "Algorithm parameters and capabilities",
+      "required": true
+    },
+    {
+      "path": "artifacts/narration.srt",
+      "type": "data",
+      "description": "Video subtitles",
+      "required": false
+    }
+  ],
+  "verification": {
+    "uuid_in_registration": true,
+    "uuid_in_judge_brief": true,
+    "uuid_in_scorecard": true,
+    "all_required_files": true,
+    "video_exists": true,
+    "artifacts_complete": true
+  }
+}

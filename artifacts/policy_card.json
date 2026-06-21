@@ -1,0 +1,40 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "project_name": "DexHand Data Collector",
+  "robot_type": "24-DOF Five-Finger Dexterous Hand",
+  "control_frequency_hz": 250,
+  "algorithms": [
+    {
+      "name": "SlipZero Controller",
+      "type": "slip_recovery",
+      "description": "4ms slip detection and recovery using tactile-visual feedback",
+      "parameters": {
+        "slip_threshold_mm": 0.5,
+        "recovery_time_ms": 4,
+        "control_frequency_hz": 250
+      }
+    },
+    {
+      "name": "Vision-Tactile Fusion",
+      "type": "sensor_fusion",
+      "description": "Adaptive alpha weighting fusion of visual and tactile signals",
+      "parameters": {
+        "vision_rate_hz": 30,
+        "tactile_rate_hz": 250,
+        "confidence_threshold": 0.8
+      }
+    },
+    {
+      "name": "Adaptive Impedance Control",
+      "type": "compliance",
+      "description": "Dynamic stiffness adjustment for different manipulation tasks"
+    }
+  ],
+  "capabilities": [
+    "Five-finger coordinated grasping",
+    "4ms slip recovery",
+    "Vision-tactile sensor fusion",
+    "Adaptive impedance control",
+    "Real ESP32 hardware interface"
+  ]
+}

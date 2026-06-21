@@ -1,0 +1,236 @@
+<mujoco model="dexterous_hand">
+  <compiler angle="radian" meshdir="../meshes"/>
+  
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50" jacobian="dense">
+    <flag constraint="enable" contact="enable" energy="enable"/>
+  </option>
+  
+  <default>
+    <joint armature="0.001" damping="5" frictionloss="0.05" limited="true"/>
+    <geom rgba="0.6 0.6 0.6 1" margin="0.001" condim="3" friction="0.8 0.01 0.01"/>
+  </default>
+  
+  <asset>
+    <texture name="metal" type="2d" builtin="checker" width="256" height="256" rgb1="0.7 0.7 0.7" rgb2="0.9 0.9 0.9"/>
+    <material name="metal_mat" texture="metal" texrepeat="2 2"/>
+    <texture name="skin" type="2d" builtin="gradient" width="256" height="256" rgb1="0.8 0.6 0.4" rgb2="0.6 0.4 0.3"/>
+    <material name="skin_mat" texture="skin"/>
+  </asset>
+  
+  <worldbody>
+    <!-- Site for frame sensors -->
+    <site name="palm_site" pos="0 0 0" size="0.001"/>
+    <site name="thumb_tendon_site" pos="0 0 0" size="0.001"/>
+    
+    <body name="palm" pos="0 0 0">
+      <geom name="palm_geom" type="box" size="0.08 0.06 0.02" rgba="0.8 0.6 0.4 1" material="skin_mat"/>
+      
+      <!-- Thumb -->
+      <body name="thumb_base" pos="0.06 0.03 0">
+        <joint name="thumb_abd" type="hinge" axis="0 0 1" range="-0.8 0.8" stiffness="500"/>
+        <geom name="thumb_base_geom" type="capsule" size="0.015 0.025" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+        
+        <body name="thumb_proximal" pos="0 0 -0.025">
+          <joint name="thumb_flex1" type="hinge" axis="1 0 0" range="0 1.5" stiffness="500"/>
+          <geom name="thumb_proximal_geom" type="capsule" size="0.012 0.025" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+          
+          <body name="thumb_distal" pos="0 0 -0.025">
+            <joint name="thumb_flex2" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+            <geom name="thumb_distal_geom" type="sphere" size="0.015" rgba="0.9 0.7 0.5 1" material="skin_mat"/>
+            <site name="thumb_tip" pos="0 0 -0.015" size="0.001"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- Index Finger -->
+      <body name="index_base" pos="0.06 -0.005 0">
+        <joint name="index_abd" type="hinge" axis="0 0 1" range="-0.5 0.5" stiffness="500"/>
+        <geom name="index_base_geom" type="capsule" size="0.012 0.02" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+        
+        <body name="index_proximal" pos="0 0 -0.02">
+          <joint name="index_flex1" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+          <geom name="index_proximal_geom" type="capsule" size="0.01 0.025" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+          
+          <body name="index_middle" pos="0 0 -0.025">
+            <joint name="index_flex2" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+            <geom name="index_middle_geom" type="capsule" size="0.008 0.022" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+            
+            <body name="index_distal" pos="0 0 -0.022">
+              <joint name="index_flex3" type="hinge" axis="1 0 0" range="0 1.5" stiffness="500"/>
+              <geom name="index_distal_geom" type="sphere" size="0.012" rgba="0.9 0.7 0.5 1" material="skin_mat"/>
+              <site name="index_tip" pos="0 0 -0.012" size="0.001"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      
+      <!-- Middle Finger -->
+      <body name="middle_base" pos="0.06 -0.02 0">
+        <joint name="middle_abd" type="hinge" axis="0 0 1" range="-0.3 0.3" stiffness="500"/>
+        <geom name="middle_base_geom" type="capsule" size="0.012 0.02" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+        
+        <body name="middle_proximal" pos="0 0 -0.02">
+          <joint name="middle_flex1" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+          <geom name="middle_proximal_geom" type="capsule" size="0.01 0.027" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+          
+          <body name="middle_middle" pos="0 0 -0.027">
+            <joint name="middle_flex2" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+            <geom name="middle_middle_geom" type="capsule" size="0.008 0.024" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+            
+            <body name="middle_distal" pos="0 0 -0.024">
+              <joint name="middle_flex3" type="hinge" axis="1 0 0" range="0 1.5" stiffness="500"/>
+              <geom name="middle_distal_geom" type="sphere" size="0.012" rgba="0.9 0.7 0.5 1" material="skin_mat"/>
+              <site name="middle_tip" pos="0 0 -0.012" size="0.001"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      
+      <!-- Ring Finger -->
+      <body name="ring_base" pos="0.06 -0.035 0">
+        <joint name="ring_abd" type="hinge" axis="0 0 1" range="-0.3 0.3" stiffness="500"/>
+        <geom name="ring_base_geom" type="capsule" size="0.012 0.02" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+        
+        <body name="ring_proximal" pos="0 0 -0.02">
+          <joint name="ring_flex1" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+          <geom name="ring_proximal_geom" type="capsule" size="0.01 0.025" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+          
+          <body name="ring_middle" pos="0 0 -0.025">
+            <joint name="ring_flex2" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+            <geom name="ring_middle_geom" type="capsule" size="0.008 0.022" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+            
+            <body name="ring_distal" pos="0 0 -0.022">
+              <joint name="ring_flex3" type="hinge" axis="1 0 0" range="0 1.5" stiffness="500"/>
+              <geom name="ring_distal_geom" type="sphere" size="0.011" rgba="0.9 0.7 0.5 1" material="skin_mat"/>
+              <site name="ring_tip" pos="0 0 -0.011" size="0.001"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      
+      <!-- Pinky Finger -->
+      <body name="pinky_base" pos="0.06 -0.05 0">
+        <joint name="pinky_abd" type="hinge" axis="0 0 1" range="-0.6 0.2" stiffness="500"/>
+        <geom name="pinky_base_geom" type="capsule" size="0.01 0.018" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+        
+        <body name="pinky_proximal" pos="0 0 -0.018">
+          <joint name="pinky_flex1" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+          <geom name="pinky_proximal_geom" type="capsule" size="0.009 0.022" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+          
+          <body name="pinky_middle" pos="0 0 -0.022">
+            <joint name="pinky_flex2" type="hinge" axis="1 0 0" range="0 1.8" stiffness="500"/>
+            <geom name="pinky_middle_geom" type="capsule" size="0.007 0.02" rgba="0.7 0.5 0.3 1" material="skin_mat"/>
+            
+            <body name="pinky_distal" pos="0 0 -0.02">
+              <joint name="pinky_flex3" type="hinge" axis="1 0 0" range="0 1.5" stiffness="500"/>
+              <geom name="pinky_distal_geom" type="sphere" size="0.01" rgba="0.9 0.7 0.5 1" material="skin_mat"/>
+              <site name="pinky_tip" pos="0 0 -0.01" size="0.001"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  
+  <actuator>
+    <position name="thumb_abd_motor" joint="thumb_abd" kp="1000" kv="100"/>
+    <position name="thumb_flex1_motor" joint="thumb_flex1" kp="1000" kv="100"/>
+    <position name="thumb_flex2_motor" joint="thumb_flex2" kp="1000" kv="100"/>
+    
+    <position name="index_abd_motor" joint="index_abd" kp="1000" kv="100"/>
+    <position name="index_flex1_motor" joint="index_flex1" kp="1000" kv="100"/>
+    <position name="index_flex2_motor" joint="index_flex2" kp="1000" kv="100"/>
+    <position name="index_flex3_motor" joint="index_flex3" kp="1000" kv="100"/>
+    
+    <position name="middle_abd_motor" joint="middle_abd" kp="1000" kv="100"/>
+    <position name="middle_flex1_motor" joint="middle_flex1" kp="1000" kv="100"/>
+    <position name="middle_flex2_motor" joint="middle_flex2" kp="1000" kv="100"/>
+    <position name="middle_flex3_motor" joint="middle_flex3" kp="1000" kv="100"/>
+    
+    <position name="ring_abd_motor" joint="ring_abd" kp="1000" kv="100"/>
+    <position name="ring_flex1_motor" joint="ring_flex1" kp="1000" kv="100"/>
+    <position name="ring_flex2_motor" joint="ring_flex2" kp="1000" kv="100"/>
+    <position name="ring_flex3_motor" joint="ring_flex3" kp="1000" kv="100"/>
+    
+    <position name="pinky_abd_motor" joint="pinky_abd" kp="1000" kv="100"/>
+    <position name="pinky_flex1_motor" joint="pinky_flex1" kp="1000" kv="100"/>
+    <position name="pinky_flex2_motor" joint="pinky_flex2" kp="1000" kv="100"/>
+    <position name="pinky_flex3_motor" joint="pinky_flex3" kp="1000" kv="100"/>
+  </actuator>
+  
+  <sensor>
+    <!-- Joint position sensors -->
+    <jointpos name="thumb_abd_pos" joint="thumb_abd"/>
+    <jointpos name="thumb_flex1_pos" joint="thumb_flex1"/>
+    <jointpos name="thumb_flex2_pos" joint="thumb_flex2"/>
+    <jointpos name="index_abd_pos" joint="index_abd"/>
+    <jointpos name="index_flex1_pos" joint="index_flex1"/>
+    <jointpos name="index_flex2_pos" joint="index_flex2"/>
+    <jointpos name="index_flex3_pos" joint="index_flex3"/>
+    <jointpos name="middle_abd_pos" joint="middle_abd"/>
+    <jointpos name="middle_flex1_pos" joint="middle_flex1"/>
+    <jointpos name="middle_flex2_pos" joint="middle_flex2"/>
+    <jointpos name="middle_flex3_pos" joint="middle_flex3"/>
+    <jointpos name="ring_abd_pos" joint="ring_abd"/>
+    <jointpos name="ring_flex1_pos" joint="ring_flex1"/>
+    <jointpos name="ring_flex2_pos" joint="ring_flex2"/>
+    <jointpos name="ring_flex3_pos" joint="ring_flex3"/>
+    <jointpos name="pinky_abd_pos" joint="pinky_abd"/>
+    <jointpos name="pinky_flex1_pos" joint="pinky_flex1"/>
+    <jointpos name="pinky_flex2_pos" joint="pinky_flex2"/>
+    <jointpos name="pinky_flex3_pos" joint="pinky_flex3"/>
+    
+    <!-- Joint velocity sensors -->
+    <jointvel name="thumb_abd_vel" joint="thumb_abd"/>
+    <jointvel name="thumb_flex1_vel" joint="thumb_flex1"/>
+    <jointvel name="thumb_flex2_vel" joint="thumb_flex2"/>
+    <jointvel name="index_abd_vel" joint="index_abd"/>
+    <jointvel name="index_flex1_vel" joint="index_flex1"/>
+    <jointvel name="index_flex2_vel" joint="index_flex2"/>
+    <jointvel name="index_flex3_vel" joint="index_flex3"/>
+    <jointvel name="middle_abd_vel" joint="middle_abd"/>
+    <jointvel name="middle_flex1_vel" joint="middle_flex1"/>
+    <jointvel name="middle_flex2_vel" joint="middle_flex2"/>
+    <jointvel name="middle_flex3_vel" joint="middle_flex3"/>
+    <jointvel name="ring_abd_vel" joint="ring_abd"/>
+    <jointvel name="ring_flex1_vel" joint="ring_flex1"/>
+    <jointvel name="ring_flex2_vel" joint="ring_flex2"/>
+    <jointvel name="ring_flex3_vel" joint="ring_flex3"/>
+    <jointvel name="pinky_abd_vel" joint="pinky_abd"/>
+    <jointvel name="pinky_flex1_vel" joint="pinky_flex1"/>
+    <jointvel name="pinky_flex2_vel" joint="pinky_flex2"/>
+    <jointvel name="pinky_flex3_vel" joint="pinky_flex3"/>
+    
+    <!-- Actuator force sensors -->
+    <actuatorfrc name="thumb_abd_frc" actuator="thumb_abd_motor"/>
+    <actuatorfrc name="thumb_flex1_frc" actuator="thumb_flex1_motor"/>
+    <actuatorfrc name="thumb_flex2_frc" actuator="thumb_flex2_motor"/>
+    <actuatorfrc name="index_abd_frc" actuator="index_abd_motor"/>
+    <actuatorfrc name="index_flex1_frc" actuator="index_flex1_motor"/>
+    <actuatorfrc name="index_flex2_frc" actuator="index_flex2_motor"/>
+    <actuatorfrc name="index_flex3_frc" actuator="index_flex3_motor"/>
+    <actuatorfrc name="middle_abd_frc" actuator="middle_abd_motor"/>
+    <actuatorfrc name="middle_flex1_frc" actuator="middle_flex1_motor"/>
+    <actuatorfrc name="middle_flex2_frc" actuator="middle_flex2_motor"/>
+    <actuatorfrc name="middle_flex3_frc" actuator="middle_flex3_motor"/>
+    <actuatorfrc name="ring_abd_frc" actuator="ring_abd_motor"/>
+    <actuatorfrc name="ring_flex1_frc" actuator="ring_flex1_motor"/>
+    <actuatorfrc name="ring_flex2_frc" actuator="ring_flex2_motor"/>
+    <actuatorfrc name="ring_flex3_frc" actuator="ring_flex3_motor"/>
+    <actuatorfrc name="pinky_abd_frc" actuator="pinky_abd_motor"/>
+    <actuatorfrc name="pinky_flex1_frc" actuator="pinky_flex1_motor"/>
+    <actuatorfrc name="pinky_flex2_frc" actuator="pinky_flex2_motor"/>
+    <actuatorfrc name="pinky_flex3_frc" actuator="pinky_flex3_motor"/>
+    
+    <!-- Touch sensors on fingertips -->
+    <touch name="thumb_touch" site="thumb_tip"/>
+    <touch name="index_touch" site="index_tip"/>
+    <touch name="middle_touch" site="middle_tip"/>
+    <touch name="ring_touch" site="ring_tip"/>
+    <touch name="pinky_touch" site="pinky_tip"/>
+    
+    <!-- IMU on palm -->
+    <accelerometer name="palm_imu_acc" site="palm_site"/>
+    <gyro name="palm_imu_gyro" site="palm_site"/>
+  </sensor>
+</mujoco>

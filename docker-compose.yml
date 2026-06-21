@@ -1,0 +1,77 @@
+# Docker Compose configuration for DexHand Data Collector
+# Multi-container setup for development and testing
+
+version: '3.8'
+
+services:
+  dexhand-sim:
+    build: .
+    container_name: dexhand-simulator
+    runtime: nvidia  # Uncomment if using NVIDIA GPU
+    environment:
+      - MUJOCO_PY_MJKEY_PATH=/app/mujoco_key/mjkey.txt
+      - MUJOCO_PY_MUJOCO_PATH=/app/mujoco
+      - DISPLAY=:0
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      - dexhand-net
+    command: python main.py --mode demo --scene assets/scenes/simple_demo.xml
+
+  dexhand-validation:
+    build: .
+    container_name: dexhand-validation
+    environment:
+      - MUJOCO_PY_MJKEY_PATH=/app/mujoco_key/mjkey.txt
+      - MUJOCO_PY_MUJOCO_PATH=/app/mujoco
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - dexhand-net
+    command: python hardware_validation.py
+    depends_on:
+      - dexhand-sim
+
+  dexhand-train:
+    build: .
+    container_name: dexhand-trainer
+    environment:
+      - MUJOCO_PY_MJKEY_PATH=/app/mujoco_key/mjkey.txt
+      - MUJOCO_PY_MUJOCO_PATH=/app/mujoco
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    networks:
+      - dexhand-net
+    command: python main.py --mode train --neural_epochs 100 --rl_iterations 20
+    depends_on:
+      - dexhand-sim
+
+  dexhand-video:
+    build: .
+    container_name: dexhand-video-gen
+    environment:
+      - MUJOCO_PY_MJKEY_PATH=/app/mujoco_key/mjkey.txt
+      - MUJOCO_PY_MUJOCO_PATH=/app/mujoco
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    networks:
+      - dexhand-net
+    command: python real_mujoco_video.py --output demo.mp4 --duration 60 --fps 30
+    depends_on:
+      - dexhand-sim
+
+networks:
+  dexhand-net:
+    driver: bridge
+
+volumes:
+  data:
+  models:
+  logs:
+  output:
