@@ -1,0 +1,65 @@
+# Docker Compose configuration for DexHand Data Collector
+# Enables easy deployment with multiple services
+
+version: '3.8'
+
+services:
+  dexhand-main:
+    build: .
+    container_name: dexhand-main
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./results:/app/results
+    ports:
+      - "8765:8765"  # WebSocket server
+    environment:
+      - PYTHONPATH=/app
+      - MUJOCO_GL=osmesa
+    command: python main.py --mode triage
+    restart: unless-stopped
+
+  dexhand-training:
+    build: .
+    container_name: dexhand-training
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - MUJOCO_GL=osmesa
+    command: python rl_controller.py
+    restart: unless-stopped
+    profiles:
+      - training
+
+  dexhand-benchmark:
+    build: .
+    container_name: dexhand-benchmark
+    volumes:
+      - ./results:/app/results
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+    command: python task_scenarios.py
+    restart: "no"
+    profiles:
+      - benchmark
+
+  dexhand-tests:
+    build: .
+    container_name: dexhand-tests
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+    command: python test_suite.py
+    restart: "no"
+    profiles:
+      - tests
+
+networks:
+  default:
+    name: dexhand-network

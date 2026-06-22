@@ -1,0 +1,128 @@
+<mujoco model="triage_arena">
+  <compiler angle="radian" meshdir="../meshes"/>
+  
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="100" jacobian="dense"/>
+  
+  <default>
+    <joint armature="0.001" damping="5" frictionloss="0.05"/>
+    <geom rgba="0.6 0.6 0.6 1" margin="0.001" condim="3" friction="0.8 0.01 0.01"/>
+  </default>
+  
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.8 0.8 0.8" rgb2="0.9 0.9 0.9"/>
+    <material name="grid_material" texture="grid" texrepeat="10 10"/>
+    
+    <texture name="metal" type="2d" builtin="checker" width="256" height="256" rgb1="0.6 0.6 0.6" rgb2="0.8 0.8 0.8"/>
+    <material name="metal_mat" texture="metal" texrepeat="2 2"/>
+    
+    <texture name="glass" type="2d" builtin="gradient" width="256" height="256" rgb1="0.8 0.9 1" rgb2="0.6 0.8 0.95"/>
+    <material name="glass_mat" texture="glass" rgba="1 1 1 0.7"/>
+    
+    <texture name="label" type="2d" builtin="gradient" width="256" height="256" rgb1="1 0.9 0.9" rgb2="0.9 0.8 0.8"/>
+    <material name="label_mat" texture="label"/>
+  </asset>
+  
+  <worldbody>
+    <geom name="ground" type="plane" size="5 5 0.1" rgba="0.8 0.8 0.8 1" material="grid_material"/>
+    
+    <light name="light1" pos="0 0 3" dir="0 0 -1" diffuse="1 1 1" specular="0.3 0.3 0.3"/>
+    <light name="light2" pos="2 2 2" dir="-1 -1 -1" diffuse="0.5 0.5 0.5"/>
+    <light name="light3" pos="-2 -2 2" dir="1 1 -1" diffuse="0.5 0.5 0.5"/>
+    
+    <!-- Triage table -->
+    <body name="table" pos="0 0 0.7">
+      <geom name="table_top" type="box" size="1.2 0.8 0.05" rgba="0.9 0.9 0.9 1"/>
+      <geom name="table_leg1" type="box" size="0.03 0.03 0.7" pos="-0.55 -0.37 -0.35" rgba="0.7 0.7 0.7 1"/>
+      <geom name="table_leg2" type="box" size="0.03 0.03 0.7" pos="0.55 -0.37 -0.35" rgba="0.7 0.7 0.7 1"/>
+      <geom name="table_leg3" type="box" size="0.03 0.03 0.7" pos="-0.55 0.37 -0.35" rgba="0.7 0.7 0.7 1"/>
+      <geom name="table_leg4" type="box" size="0.03 0.03 0.7" pos="0.55 0.37 -0.35" rgba="0.7 0.7 0.7 1"/>
+    </body>
+    
+    <!-- Dexterous Hand -->
+    <body name="hand_root" pos="0.5 0 1.0">
+      <freejoint name="hand_freejoint"/>
+      <include file="../robots/dexhand.xml"/>
+    </body>
+    
+    <!-- Medical vial for triage task -->
+    <body name="vial" pos="-0.2 0.1 0.75">
+      <freejoint name="vial_freejoint"/>
+      <geom name="vial_body" type="cylinder" size="0.015 0.06" rgba="0.9 0.95 1 0.8" material="glass_mat"/>
+      <geom name="vial_cap" type="cylinder" size="0.018 0.015" pos="0 0 0.06" rgba="0.2 0.4 0.8 1" material="metal_mat"/>
+      <geom name="vial_label" type="cylinder" size="0.014 0.025" pos="0 0 0.02" rgba="1 1 1 0.9" material="label_mat"/>
+      <geom name="vial_liquid" type="cylinder" size="0.012 0.03" pos="0 0 -0.01" rgba="0.6 0.8 1 0.6"/>
+    </body>
+    
+    <!-- Pill bottle -->
+    <body name="pill_bottle" pos="0.0 0.2 0.75">
+      <freejoint name="pill_bottle_freejoint"/>
+      <geom name="pill_bottle_body" type="cylinder" size="0.025 0.07" rgba="0.95 0.9 0.9 0.95" material="glass_mat"/>
+      <geom name="pill_bottle_cap" type="cylinder" size="0.028 0.02" pos="0 0 0.07" rgba="0.3 0.3 0.3 1" material="metal_mat"/>
+    </body>
+    
+    <!-- Syringe -->
+    <body name="syringe" pos="0.2 0.1 0.75">
+      <freejoint name="syringe_freejoint"/>
+      <geom name="syringe_barrel" type="cylinder" size="0.008 0.08" rgba="0.95 0.95 0.95 0.9" material="glass_mat"/>
+      <geom name="syringe_plunger" type="cylinder" size="0.007 0.03" pos="0 0 -0.05" rgba="0.6 0.6 0.6 1" material="metal_mat"/>
+      <geom name="syringe_tip" type="cylinder" size="0.002 0.015" pos="0 0 0.09" rgba="0.5 0.5 0.5 1"/>
+    </body>
+    
+    <!-- Medical box -->
+    <body name="medical_box" pos="-0.2 -0.2 0.75">
+      <freejoint name="box_freejoint"/>
+      <geom name="box_body" type="box" size="0.1 0.08 0.06" rgba="0.9 0.1 0.1 1"/>
+      <geom name="box_lid" type="box" size="0.11 0.085 0.01" pos="0 0 0.035" rgba="0.7 0.1 0.1 1"/>
+    </body>
+    
+    <!-- Workspace markers -->
+    <site name="workspace_center" pos="0 0 1.0" size="0.015" rgba="1 0 0 0.6"/>
+    <site name="vial_target" pos="-0.2 0.1 0.85" size="0.01" rgba="0 1 0 0.5"/>
+    <site name="goal_position" pos="0.3 -0.2 0.85" size="0.01" rgba="0 0 1 0.5"/>
+    
+    <!-- Cameras -->
+    <camera name="main_camera" pos="1.5 1.5 1.5" lookat="0 0 0.8" fovy="50"/>
+    <camera name="closeup_camera" pos="0.5 0.5 1.2" lookat="-0.2 0.1 0.75" fovy="40"/>
+    <camera name="top_camera" pos="0 0 2.5" lookat="0 0 0.8" fovy="60"/>
+  </worldbody>
+  
+  <sensor>
+    <jointpos name="all_joint_positions"/>
+    <jointvel name="all_joint_velocities"/>
+    <actuatorforce name="all_torques"/>
+    
+    <framepos name="hand_pos" objtype="body" objname="palm"/>
+    <framequat name="hand_quat" objtype="body" objname="palm"/>
+    <framevel name="hand_vel" objtype="body" objname="palm"/>
+    
+    <touch name="thumb_touch" objtype="geom" objname="thumb_distal_geom"/>
+    <touch name="index_touch" objtype="geom" objname="index_distal_geom"/>
+    <touch name="middle_touch" objtype="geom" objname="middle_distal_geom"/>
+    <touch name="ring_touch" objtype="geom" objname="ring_distal_geom"/>
+    <touch name="pinky_touch" objtype="geom" objname="pinky_distal_geom"/>
+    
+    <accelerometer name="palm_imu_acc" objtype="body" objname="palm"/>
+    <gyro name="palm_imu_gyro" objtype="body" objname="palm"/>
+    
+    <contactforce name="contact_forces"/>
+    <contactnum name="contact_count"/>
+    
+    <framepos name="vial_pos" objtype="body" objname="vial"/>
+    <framequat name="vial_quat" objtype="body" objname="vial"/>
+    <framevel name="vial_vel" objtype="body" objname="vial"/>
+    
+    <framepos name="pill_bottle_pos" objtype="body" objname="pill_bottle"/>
+    <framequat name="pill_bottle_quat" objtype="body" objname="pill_bottle"/>
+    
+    <framepos name="syringe_pos" objtype="body" objname="syringe"/>
+    <framequat name="syringe_quat" objtype="body" objname="syringe"/>
+    
+    <energy name="kinetic_energy" type="kinetic"/>
+    <energy name="potential_energy" type="potential"/>
+  </sensor>
+  
+  <keyframe>
+    <key name="initial_pose" qpos="0.5 0 1.0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    <key name="grasp_pose" qpos="0.5 0 0.8 1 0 0 0 0.5 1.2 1.0 0.5 1.2 1.0 0.8 0.3 1.2 1.0 0.8 0.3 1.2 1.0 0.8 0.4 1.2 1.0 0.8 0" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+</mujoco>

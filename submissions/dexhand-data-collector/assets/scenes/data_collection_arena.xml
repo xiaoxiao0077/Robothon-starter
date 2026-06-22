@@ -1,0 +1,146 @@
+<mujoco model="data_collection_arena">
+  <compiler angle="radian" meshdir="../meshes"/>
+  
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50" jacobian="dense">
+    <flag constraint="enable" contact="enable" energy="enable"/>
+    <numeric solver="PGS" tolerance="1e-6" iterations="100"/>
+    <visualize>
+      <contact force="true" width="2"/>
+      <frame width="4"/>
+      <actuator width="3"/>
+    </visualize>
+  </option>
+  
+  <default>
+    <joint armature="0.001" damping="5" frictionloss="0.05"/>
+    <geom rgba="0.6 0.6 0.6 1" margin="0.001" condim="3" friction="0.8 0.01 0.01"/>
+  </default>
+  
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.8 0.8 0.8" rgb2="0.9 0.9 0.9"/>
+    <material name="grid_material" texture="grid" texrepeat="10 10" texuniform="true"/>
+    
+    <texture name="metal" type="2d" builtin="checker" width="256" height="256" rgb1="0.6 0.6 0.6" rgb2="0.8 0.8 0.8"/>
+    <material name="metal_mat" texture="metal" texrepeat="2 2"/>
+    
+    <texture name="wood" type="2d" builtin="gradient" width="256" height="256" rgb1="0.7 0.5 0.3" rgb2="0.5 0.3 0.1"/>
+    <material name="wood_mat" texture="wood"/>
+  </asset>
+  
+  <worldbody>
+    <!-- Ground plane -->
+    <geom name="ground" type="plane" size="5 5 0.1" rgba="0.8 0.8 0.8 1" material="grid_material"/>
+    
+    <!-- Lighting -->
+    <light name="light1" pos="0 0 3" dir="0 0 -1" diffuse="1 1 1" specular="0.3 0.3 0.3"/>
+    <light name="light2" pos="2 2 2" dir="-1 -1 -1" diffuse="0.5 0.5 0.5" specular="0.2 0.2 0.2"/>
+    <light name="light3" pos="-2 -2 2" dir="1 1 -1" diffuse="0.5 0.5 0.5" specular="0.2 0.2 0.2"/>
+    
+    <!-- Table -->
+    <body name="table" pos="0 0 0.5">
+      <geom name="table_top" type="box" size="1.5 1.0 0.05" rgba="0.7 0.5 0.3 1" material="wood_mat"/>
+      <geom name="table_leg1" type="box" size="0.05 0.05 0.5" pos="-0.7 -0.45 -0.25" rgba="0.6 0.4 0.2 1" material="wood_mat"/>
+      <geom name="table_leg2" type="box" size="0.05 0.05 0.5" pos="0.7 -0.45 -0.25" rgba="0.6 0.4 0.2 1" material="wood_mat"/>
+      <geom name="table_leg3" type="box" size="0.05 0.05 0.5" pos="-0.7 0.45 -0.25" rgba="0.6 0.4 0.2 1" material="wood_mat"/>
+      <geom name="table_leg4" type="box" size="0.05 0.05 0.5" pos="0.7 0.45 -0.25" rgba="0.6 0.4 0.2 1" material="wood_mat"/>
+    </body>
+    
+    <!-- Dexterous Hand -->
+    <body name="hand_root" pos="0.5 0 0.8">
+      <freejoint name="hand_freejoint"/>
+      <include file="../robots/dexhand.xml"/>
+    </body>
+    
+    <!-- Objects for manipulation -->
+    <body name="object_cube" pos="-0.3 0 0.55">
+      <freejoint name="cube_freejoint"/>
+      <geom name="cube" type="box" size="0.04 0.04 0.04" rgba="1 0 0 1" density="1000" material="metal_mat"/>
+    </body>
+    
+    <body name="object_sphere" pos="-0.1 0.2 0.55">
+      <freejoint name="sphere_freejoint"/>
+      <geom name="sphere" type="sphere" size="0.03" rgba="0 1 0 1" density="1000" material="metal_mat"/>
+    </body>
+    
+    <body name="object_cylinder" pos="0.1 0.2 0.55">
+      <freejoint name="cylinder_freejoint"/>
+      <geom name="cylinder" type="cylinder" size="0.02 0.04" rgba="0 0 1 1" density="1000" material="metal_mat"/>
+    </body>
+    
+    <body name="object_box" pos="0.3 0 0.55">
+      <freejoint name="box_freejoint"/>
+      <geom name="box" type="box" size="0.06 0.03 0.03" rgba="1 1 0 1" density="1000" material="metal_mat"/>
+    </body>
+    
+    <body name="object_ring" pos="-0.2 -0.2 0.55">
+      <freejoint name="ring_freejoint"/>
+      <geom name="ring" type="capsule" size="0.015 0.025" rgba="0.8 0.2 0.8 1" density="800" material="metal_mat"/>
+    </body>
+    
+    <body name="object_wrench" pos="0.0 -0.3 0.55">
+      <freejoint name="wrench_freejoint"/>
+      <geom name="wrench_head" type="box" size="0.03 0.06 0.02" pos="0 0 0" rgba="0.4 0.4 0.4 1" material="metal_mat"/>
+      <geom name="wrench_handle" type="cylinder" size="0.01 0.08" pos="0 -0.1 0" rgba="0.3 0.3 0.3 1" material="metal_mat"/>
+    </body>
+    
+    <!-- Workspace markers -->
+    <site name="workspace_center" pos="0 0 0.8" size="0.01" rgba="1 0 0 0.5"/>
+    <site name="workspace_corner1" pos="-0.3 -0.3 0.5" size="0.01" rgba="0 0 1 0.5"/>
+    <site name="workspace_corner2" pos="0.3 0.3 1.0" size="0.01" rgba="0 0 1 0.5"/>
+    
+    <!-- Camera -->
+    <camera name="main_camera" pos="1.5 1.5 1.5" lookat="0 0 0.7" fovy="60"/>
+    <camera name="top_camera" pos="0 0 3" lookat="0 0 0.5" fovy="60"/>
+    <camera name="side_camera" pos="2 0 1" lookat="0 0 0.7" fovy="60"/>
+  </worldbody>
+  
+  <sensor>
+    <jointpos name="all_joint_positions"/>
+    <jointvel name="all_joint_velocities"/>
+    <actuatorforce name="all_torques"/>
+    
+    <framepos name="hand_pos" objtype="body" objname="palm"/>
+    <framequat name="hand_quat" objtype="body" objname="palm"/>
+    <framevel name="hand_vel" objtype="body" objname="palm"/>
+    <frameacc name="hand_acc" objtype="body" objname="palm"/>
+    
+    <touch name="thumb_touch" objtype="geom" objname="thumb_distal_geom"/>
+    <touch name="index_touch" objtype="geom" objname="index_distal_geom"/>
+    <touch name="middle_touch" objtype="geom" objname="middle_distal_geom"/>
+    <touch name="ring_touch" objtype="geom" objname="ring_distal_geom"/>
+    <touch name="pinky_touch" objtype="geom" objname="pinky_distal_geom"/>
+    
+    <accelerometer name="palm_imu_acc" objtype="body" objname="palm"/>
+    <gyro name="palm_imu_gyro" objtype="body" objname="palm"/>
+    
+    <contactforce name="contact_forces"/>
+    <contactnum name="contact_count"/>
+    
+    <framepos name="cube_pos" objtype="body" objname="object_cube"/>
+    <framequat name="cube_quat" objtype="body" objname="object_cube"/>
+    <framevel name="cube_vel" objtype="body" objname="object_cube"/>
+    
+    <framepos name="sphere_pos" objtype="body" objname="object_sphere"/>
+    <framequat name="sphere_quat" objtype="body" objname="object_sphere"/>
+    <framevel name="sphere_vel" objtype="body" objname="object_sphere"/>
+    
+    <framepos name="cylinder_pos" objtype="body" objname="object_cylinder"/>
+    <framequat name="cylinder_quat" objtype="body" objname="object_cylinder"/>
+    <framevel name="cylinder_vel" objtype="body" objname="object_cylinder"/>
+    
+    <framepos name="box_pos" objtype="body" objname="object_box"/>
+    <framequat name="box_quat" objtype="body" objname="object_box"/>
+    <framevel name="box_vel" objtype="body" objname="object_box"/>
+    
+    <energy name="system_kinetic_energy" type="kinetic"/>
+    <energy name="system_potential_energy" type="potential"/>
+    
+    <tendonpos name="tendon_positions"/>
+    <tendonvel name="tendon_velocities"/>
+  </sensor>
+  
+  <keyframe>
+    <key name="initial_pose" qpos="0 0 0.8 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    <key name="grasp_pose" qpos="0 0 0.8 1 0 0 0 0.5 1.2 1.0 0.5 1.2 1.0 0.8 0.3 1.2 1.0 0.8 0.3 1.2 1.0 0.8 0.4 1.2 1.0 0.8 0" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+</mujoco>
