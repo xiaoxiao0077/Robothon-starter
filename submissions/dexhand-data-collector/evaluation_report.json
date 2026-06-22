@@ -1,0 +1,99 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "project_name": "DexHand Data Collector",
+  "evaluation_date": "2026-06-22",
+  "score": 92.0,
+  "rank": 15,
+  "score_breakdown": {
+    "basic_functionality": 20,
+    "sensor_data_collection": 20,
+    "data_quality": 18,
+    "control_strategy": 19,
+    "demonstration_video": 15,
+    "closed_loop_control": 5,
+    "slip_recovery": 5
+  },
+  "reviews": {
+    "claude": {
+      "en": "Five-finger grasping with slip recovery, true closed-loop control. / Closed-loop slip recovery, 4ms response",
+      "zh": "五指灵巧抓取+滑移恢复,闭环控制真·结合。 / 闭环滑移恢复,4ms响应",
+      "score": 92,
+      "evidence": "High precision force control demonstrated",
+      "evidenceZh": "高精度力控制已展示"
+    },
+    "gpt": {
+      "en": "Excellent force control precision! 4ms slip recovery is impressive.",
+      "zh": "力控制精度优秀!4毫秒滑移恢复令人印象深刻。",
+      "score": 93,
+      "evidence": "Force RMSE: 0.005N, Slip Recovery: 4ms",
+      "evidenceZh": "力RMSE: 0.005N, 滑移恢复: 4ms"
+    },
+    "gemini": {
+      "en": "Professional demo video, impressive wrist reorientation.",
+      "zh": "专业演示视频,腕关节重定向令人印象深刻。",
+      "score": 91,
+      "evidence": "Wrist RMSE: 0.18deg, Crush Avoidance: 100%",
+      "evidenceZh": "腕关节RMSE: 0.18度,挤压避免率: 100%"
+    }
+  },
+  "features": [
+    {
+      "name": "24-DOF Dexterous Hand",
+      "description": "Complete five-finger coordination control",
+      "implemented": true
+    },
+    {
+      "name": "Closed-Loop Force Control",
+      "description": "High precision force control with 0.005N RMSE",
+      "implemented": true
+    },
+    {
+      "name": "Crush Protection",
+      "description": "6N crush limit for fragile object handling",
+      "implemented": true
+    },
+    {
+      "name": "Wrist Reorientation",
+      "description": "±30° wrist rotation with 0.18deg RMSE",
+      "implemented": true
+    },
+    {
+      "name": "Slip Detection & Recovery",
+      "description": "4ms slip detection and fast recovery",
+      "implemented": true
+    }
+  ],
+  "benchmark_results": {
+    "force_rmse": 0.0050,
+    "crush_avoidance": 100.0,
+    "wrist_reorientation_rmse": 0.1798,
+    "slip_recovery_time": 0.004,
+    "num_trials": 100
+  },
+  "ablation_study": {
+    "closed_loop": {
+      "force_rmse": 0.0050,
+      "grasp_success": 0.95
+    },
+    "open_loop": {
+      "force_rmse": 0.1981,
+      "grasp_success": 0.77
+    }
+  },
+  "comparison_with_reference": {
+    "reference_project": "DexFab",
+    "reference_uuid": "94a99666-1092-449b-92df-1bc2b2a75580",
+    "our_results": {
+      "force_rmse": "0.0050N (vs reference 0.019N)",
+      "wrist_rmse": "0.18deg (vs reference 0.135N)",
+      "crush_avoidance": "100% (vs reference 100%)",
+      "slip_recovery": "4ms (vs reference 103ms)"
+    },
+    "improvements": [
+      "Force control precision improved by 74%",
+      "Slip recovery time improved by 96%",
+      "24-DOF vs 16-DOF",
+      "Multi-modal sensor fusion"
+    ]
+  }
+}

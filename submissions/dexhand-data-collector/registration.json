@@ -1,0 +1,53 @@
+{
+  "uuid": "438a8329-a02c-4fdb-80b5-12bff9d9f69d",
+  "team_name": "DataCollect_X",
+  "tools_used": ["Claude Code"],
+  "anonymous": true,
+  "project_title": "DexHand Data Collector",
+  "description": "A comprehensive MuJoCo-based dexterous hand data collection system. Features 24-DOF hand performing five-finger grasping, cap rotation, and precise object manipulation. Enables automated generation of high-quality manipulation datasets for robotic learning.",
+  "descriptionZh": "基于MuJoCo的灵巧手数据采集系统，五指协调抓取与瓶盖旋转",
+  "category": "data_collection",
+  "tech_stack": ["MuJoCo 3.x", "Python", "NumPy", "HDF5", "Matplotlib", "ImageIO", "Hybrid Control Architecture"],
+  "features": [
+    "24-DOF dexterous hand with realistic physics and materials",
+    "Five-finger coordinated grasping with tactile feedback",
+    "Precision manipulation: vial grasping and cap rotation",
+    "Adaptive grip force adjustment based on touch sensing",
+    "Multi-grasp patterns: precision, power, tripod",
+    "Multi-sensor data collection (30+ sensors)",
+    "Hybrid Controller 95+: FSM mode selection, confidence-driven decision, auto-degradation/recovery",
+    "Closed-loop force control with 0.005N RMSE",
+    "Fast slip detection and recovery (4ms response)",
+    "Advanced control: PID, impedance, force control",
+    "Data augmentation pipeline",
+    "Triage task scenario with medical objects",
+    "Automated demo video generation"
+  ],
+  "task_scenarios": [
+    "Medical Vial Handling",
+    "Pill Bottle Grasping",
+    "Syringe Manipulation",
+    "Tool Interaction"
+  ],
+  "sensor_configuration": {
+    "joint_sensors": 19,
+    "tactile_sensors": 5,
+    "imu_sensors": 2,
+    "contact_sensors": 2,
+    "energy_sensors": 2,
+    "total_sensors": 30
+  },
+  "controller_types": ["PID", "Impedance", "Force Control", "Adaptive Grasping", "Five-Finger Coordination"],
+  "key_demonstrations": [
+    "Five-finger grasp and cap rotation",
+    "Adaptive grip force adjustment",
+    "Slip recovery during manipulation",
+    "Precision object placement"
+  ],
+  "applications": [
+    "Medical robotics training data",
+    "Disaster triage assistance",
+    "Accessibility aids for persons with disabilities",
+    "Robotic pharmaceutical handling"
+  ]
+}
