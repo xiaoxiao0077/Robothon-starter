@@ -452,8 +452,8 @@ class RobotController:
         
         # Step 1: Approach with impedance control
         print("  1. Approaching block (adaptive impedance)...")
-        self.data.ctrl[3] = 1.0
-        self.data.ctrl[4] = 1.0
+        self.data.ctrl[3] = 0.0
+        self.data.ctrl[4] = 0.0
         
         for _ in range(200):
             ee = self.get_ee_pos()
@@ -461,7 +461,7 @@ class RobotController:
             action = self.adaptive_impedance_control(
                 target_approach, ee, np.zeros(3), stiffness=150
             )
-            self.step_ctrl(action, gripper=1.0)
+            self.step_ctrl(action, gripper=0.0)
         
         # Step 2: Lower with force control
         print("  2. Lowering with force control...")
@@ -471,7 +471,7 @@ class RobotController:
             action = self.force_control_step(
                 target_lower, target_force=0.5, direction=np.array([0, 0, -1])
             )
-            self.step_ctrl(action, gripper=1.0)
+            self.step_ctrl(action, gripper=0.0)
         
         # Step 3: Close gripper with force control
         print("  3. Closing gripper (force-controlled)...")
@@ -479,8 +479,8 @@ class RobotController:
             touch = self.data.sensordata[0] if self.model.nsensor > 0 else 0
             if touch > 0.3:
                 break
-            self.data.ctrl[3] = -1.0
-            self.data.ctrl[4] = -1.0
+            self.data.ctrl[3] = 0.02
+            self.data.ctrl[4] = 0.02
             mujoco.mj_step(self.model, self.data)
         
         # Step 4: Lift with impedance control
@@ -491,7 +491,7 @@ class RobotController:
             action = self.adaptive_impedance_control(
                 lift_pos, ee, np.zeros(3), stiffness=100
             )
-            self.step_ctrl(action, gripper=-1.0)
+            self.step_ctrl(action, gripper=0.02)
         
         # Check lift
         block_pos = self.data.xpos[self.block_idx].copy()
@@ -505,7 +505,7 @@ class RobotController:
             action = self.adaptive_impedance_control(
                 transport_pos, ee, np.zeros(3), stiffness=120
             )
-            self.step_ctrl(action, gripper=-1.0)
+            self.step_ctrl(action, gripper=0.02)
         
         # Step 6: Place with force control
         print("  6. Placing...")
@@ -515,12 +515,12 @@ class RobotController:
             action = self.force_control_step(
                 target_place, target_force=0.3, direction=np.array([0, 0, -1])
             )
-            self.step_ctrl(action, gripper=-1.0)
+            self.step_ctrl(action, gripper=0.02)
         
         # Step 7: Release
         for _ in range(50):
-            self.data.ctrl[3] = 1.0
-            self.data.ctrl[4] = 1.0
+            self.data.ctrl[3] = 0.0
+            self.data.ctrl[4] = 0.0
             mujoco.mj_step(self.model, self.data)
         
         # Final check

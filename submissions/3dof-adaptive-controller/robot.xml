@@ -74,12 +74,12 @@
                             <geom name="gripper_base_geom" type="box" size="0.012 0.03 0.012" material="metal"/>
                             
                             <body name="left_finger" pos="0 0.03 0.012">
-                                <joint name="finger_left" type="slide" axis="0 1 0" range="0 0.02" damping="0.3"/>
+                                <joint name="finger_left" type="slide" axis="0 -1 0" range="0 0.02" damping="0.3"/>
                                 <geom name="left_finger_geom" type="box" size="0.006 0.01 0.02" material="metal" friction="2.0"/>
                             </body>
                             
                             <body name="right_finger" pos="0 -0.03 0.012">
-                                <joint name="finger_right" type="slide" axis="0 -1 0" range="0 0.02" damping="0.3"/>
+                                <joint name="finger_right" type="slide" axis="0 1 0" range="0 0.02" damping="0.3"/>
                                 <geom name="right_finger_geom" type="box" size="0.006 0.01 0.02" material="metal" friction="2.0"/>
                             </body>
                             
