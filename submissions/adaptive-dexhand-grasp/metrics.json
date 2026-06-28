@@ -1,9 +1,33 @@
 {
   "success_rate": 100,
-  "trials": 100,
-  "recovery_ms": 4,
+  "trials": 10,
+  "wilson_ci_lower": 72.2,
+  "wilson_ci_upper": 100.0,
+  "recovery_ms": 4.2,
   "objects": 10,
   "tactile": 5,
   "fingers": 5,
-  "closed_loop": true
+  "closed_loop": true,
+  "ablation": {
+    "closed_loop": {
+      "success_rate": 100,
+      "mean_force": 2.22,
+      "std_force": 0.23
+    },
+    "open_loop": {
+      "success_rate": 90,
+      "mean_force": 4.20,
+      "std_force": 0.26
+    },
+    "no_tactile": {
+      "success_rate": 80,
+      "mean_force": 3.27,
+      "std_force": 0.39
+    },
+    "no_slip_recovery": {
+      "success_rate": 90,
+      "mean_force": 2.70,
+      "std_force": 0.26
+    }
+  }
 }
