@@ -101,6 +101,7 @@ def make_scene(obj):
     <touch name="t4" site="s4"/>
   </sensor>
   <actuator>
+    <position name="az" joint="palm_z" kp="2000" kv="200"/>
     <position name="a1" joint="j1" kp="200" kv="20"/>
     <position name="a1t" joint="j1t" kp="150" kv="15"/>
     <position name="a2" joint="j2" kp="200" kv="20"/>
@@ -130,7 +131,7 @@ def run_one(obj, idx, all_labels, all_colors):
     nu = model.nu
     
     data.ctrl[:] = 0
-    data.qpos[palm_q] = 0.0
+    data.ctrl[0] = 0.0  # z actuator at top
     for _ in range(250): mujoco.mj_step(model, data)
     obj_home = data.xpos[obj_bid][2]
     
@@ -140,24 +141,24 @@ def run_one(obj, idx, all_labels, all_colors):
     lifted = False
     phase = "INIT"
     
-    for step in range(1200):  # 2.4s total
+    for step in range(1800):  # 3.6s total per object (2.4s action + 1.2s showcase)
         t = step * 0.002
         
         if t < 0.5:
             p = min(1.0, t/0.5)
             p = p*p*(3-2*p)
-            data.qpos[palm_q] = 0.03 * p
+            data.ctrl[0] = 0.03 * p  # z actuator descends
             gf = np.zeros(4)
             phase = "DESCEND"
         elif t < 1.2:
-            data.qpos[palm_q] = 0.03
+            data.ctrl[0] = 0.03  # hold position
             for fi in range(4):
                 gf[fi] = min(0.85, gf[fi] + 0.008)
             phase = "GRASP"
-        else:
+        elif t < 2.4:
             p = min(1.0, (t-1.2)/1.0)
             p = p*p*(3-2*p)
-            data.qpos[palm_q] = 0.03 * (1-p)
+            data.ctrl[0] = 0.03 * (1-p)  # lift
             for fi in range(4):
                 gf[fi] = min(0.95, gf[fi] + 0.005)
             # 球跟随
@@ -165,12 +166,21 @@ def run_one(obj, idx, all_labels, all_colors):
             data.qpos[obj_q] = pz - 0.035
             data.qvel[obj_jid] = 0
             phase = "LIFT"
+        else:
+            # 展示阶段: 保持提起状态
+            data.ctrl[0] = 0.0
+            for fi in range(4):
+                gf[fi] = 0.95
+            pz = data.xpos[palm_bid][2]
+            data.qpos[obj_q] = pz - 0.035
+            data.qvel[obj_jid] = 0
+            phase = "SHOWCASE"
         
-        # 设置手指力
-        data.ctrl[0] = gf[0]*1.0; data.ctrl[1] = gf[0]*0.7
-        data.ctrl[2] = gf[1]*1.0; data.ctrl[3] = gf[1]*0.7
-        data.ctrl[4] = gf[2]*1.0; data.ctrl[5] = gf[2]*0.7
-        data.ctrl[6] = gf[3]*1.0; data.ctrl[7] = gf[3]*0.7
+        # 设置手指力 (ctrl[1-8])
+        data.ctrl[1] = gf[0]*1.0; data.ctrl[2] = gf[0]*0.7
+        data.ctrl[3] = gf[1]*1.0; data.ctrl[4] = gf[1]*0.7
+        data.ctrl[5] = gf[2]*1.0; data.ctrl[6] = gf[2]*0.7
+        data.ctrl[7] = gf[3]*1.0; data.ctrl[8] = gf[3]*0.7
         
         mujoco.mj_step(model, data)
         
