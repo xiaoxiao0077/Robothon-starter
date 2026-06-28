@@ -1,0 +1,80 @@
+<mujoco model="final_grasp">
+  <compiler angle="radian"/>
+  <option timestep="0.001"/>
+  <default><geom condim="4" friction="2.0 0.01 0.001"/></default>
+  <visual><headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3"/>
+  <global azimuth="210" elevation="-30" offwidth="1920" offheight="1080"/></visual>
+  <asset>
+    <material name="red" rgba="0.9 0.2 0.2 1"/>
+    <material name="blue" rgba="0.2 0.3 0.9 1"/>
+    <material name="green" rgba="0.2 0.8 0.3 1"/>
+    <material name="hand" rgba="0.7 0.55 0.4 1"/>
+  </asset>
+  <worldbody>
+    <geom name="floor" type="plane" size="1 1 0.01" rgba="0.3 0.5 0.3 1"/>
+    <body name="table" pos="0 0 0.3">
+      <geom type="box" size="0.5 0.5 0.015" rgba="0.55 0.45 0.35 1"/>
+    </body>
+    <!-- 球有垂直滑轨 -->
+    <body name="ball" pos="0 0 0.34">
+      <joint name="ball_z" type="slide" axis="0 0 1" range="-0.34 1.0"/>
+      <geom name="ball_g" type="sphere" size="0.025" material="red"/>
+    </body>
+    <!-- 手掌固定在球上方 -->
+    <body name="palm" pos="0 0 0.37">
+      <geom type="cylinder" size="0.02 0.008" material="hand" contype="0" conaffinity="0"/>
+      <body name="f1" pos="0.015 0 -0.008">
+        <joint name="j1" type="hinge" axis="0 1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" material="hand"/>
+        <body name="f1t" pos="0 0 -0.03">
+          <joint name="j1t" type="hinge" axis="0 1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" material="hand"/>
+          <site name="s1" pos="0 0 -0.025"/>
+        </body>
+      </body>
+      <body name="f2" pos="0 0.015 -0.008">
+        <joint name="j2" type="hinge" axis="-1 0 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" material="hand"/>
+        <body name="f2t" pos="0 0 -0.03">
+          <joint name="j2t" type="hinge" axis="-1 0 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" material="hand"/>
+          <site name="s2" pos="0 0 -0.025"/>
+        </body>
+      </body>
+      <body name="f3" pos="0 -0.015 -0.008">
+        <joint name="j3" type="hinge" axis="1 0 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" material="hand"/>
+        <body name="f3t" pos="0 0 -0.03">
+          <joint name="j3t" type="hinge" axis="1 0 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" material="hand"/>
+          <site name="s3" pos="0 0 -0.025"/>
+        </body>
+      </body>
+      <body name="f4" pos="-0.015 0 -0.008">
+        <joint name="j4" type="hinge" axis="0 -1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" material="hand"/>
+        <body name="f4t" pos="0 0 -0.03">
+          <joint name="j4t" type="hinge" axis="0 -1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" material="hand"/>
+          <site name="s4" pos="0 0 -0.025"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <sensor>
+    <touch name="t1" site="s1"/>
+    <touch name="t2" site="s2"/>
+    <touch name="t3" site="s3"/>
+    <touch name="t4" site="s4"/>
+  </sensor>
+  <actuator>
+    <position name="a1" joint="j1" kp="100" kv="10"/>
+    <position name="a1t" joint="j1t" kp="80" kv="8"/>
+    <position name="a2" joint="j2" kp="100" kv="10"/>
+    <position name="a2t" joint="j2t" kp="80" kv="8"/>
+    <position name="a3" joint="j3" kp="100" kv="10"/>
+    <position name="a3t" joint="j3t" kp="80" kv="8"/>
+    <position name="a4" joint="j4" kp="100" kv="10"/>
+    <position name="a4t" joint="j4t" kp="80" kv="8"/>
+  </actuator>
+</mujoco>

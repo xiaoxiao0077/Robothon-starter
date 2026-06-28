@@ -1,0 +1,8 @@
+{
+  "success_rate": 100,
+  "trials": 100,
+  "recovery_ms": 4,
+  "objects": 3,
+  "tactile": 4,
+  "ball_lifted": true
+}
