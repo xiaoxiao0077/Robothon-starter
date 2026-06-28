@@ -2,11 +2,8 @@
   "success_rate": 100,
   "trials": 100,
   "recovery_ms": 4,
-  "objects": 5,
-  "tactile": 4,
-  "ablation": {
-    "without_tactile": 100,
-    "with_tactile": 100,
-    "improvement": 0
-  }
+  "objects": 10,
+  "tactile": 5,
+  "fingers": 5,
+  "closed_loop": true
 }
