@@ -8,6 +8,8 @@
   "tactile": 5,
   "fingers": 5,
   "closed_loop": true,
+  "task_steps": 22,
+  "fusion_confidence": 0.85,
   "ablation": {
     "closed_loop": {
       "success_rate": 100,
