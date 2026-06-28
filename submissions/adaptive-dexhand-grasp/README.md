@@ -59,9 +59,11 @@ This enables:
 | Metric | Result | 95% CI |
 |--------|--------|--------|
 | Success Rate | 100% | [89.3%, 100%] |
-| Mean Force | 2.15N | ±0.36N |
-| Slip Recovery Time | 3.9ms | ±0.5ms |
+| Mean Force | 2.09N | ±0.36N |
+| Force RMSE | 2.12N | - |
+| Slip Recovery Time | 4.0ms | ±0.6ms |
 | Fusion Confidence | 0.85 | ±0.08 |
+| Task Completion Time | 22.5s | ±1.7s |
 | Task Completion | 22/22 steps | 100% |
 
 ## Ablation Study: 5-Configuration Comparison
@@ -98,10 +100,12 @@ adaptive-dexhand-grasp/
 ├── JUDGE_BRIEF.md                # One-page summary
 ├── EVALUATION_GUIDE.md           # What to inspect first
 ├── benchmark_ablation.py         # Benchmark & ablation code
+├── extended_benchmark.py         # Extended metrics
 ├── hardware_interface.py         # ROS2/ESP32 interface
-├── render_mujoco_video.py        # MuJoCo video renderer
+├── render_enhanced_video.py      # Enhanced video renderer
 ├── five_finger_scene.xml         # MuJoCo scene
 ├── metrics.json                  # Quantified results
+├── extended_benchmark_results.json  # Extended metrics
 ├── registration.json             # UUID registration
 └── demo.mp4                      # 22s demo video with HUD
 ```

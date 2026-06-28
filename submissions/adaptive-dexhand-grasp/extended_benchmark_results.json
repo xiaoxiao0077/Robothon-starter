@@ -1,0 +1,35 @@
+{
+  "basic_metrics": {
+    "n_trials": 32,
+    "successes": 32,
+    "success_rate": 1.0,
+    "wilson_ci_lower": 0.8928208017449293,
+    "wilson_ci_upper": 1
+  },
+  "force_metrics": {
+    "mean_force": 2.0868193791038645,
+    "std_force": 0.3637236690756413,
+    "min_force": 1.3250709094950157,
+    "max_force": 2.8923608381386683,
+    "force_rmse": 2.11827996932636
+  },
+  "recovery_metrics": {
+    "recovery_count": 6,
+    "mean_recovery_time": 4.013638820575993,
+    "std_recovery_time": 0.638363945649949,
+    "recovery_rate": 0.1875
+  },
+  "fusion_metrics": {
+    "mean_fusion_confidence": 0.8490174682621663,
+    "std_fusion_confidence": 0.07730769408215343,
+    "min_fusion_confidence": 0.6988153347589444,
+    "max_fusion_confidence": 0.970403337390522
+  },
+  "task_metrics": {
+    "mean_task_time": 22.541526589351438,
+    "std_task_time": 1.727934033280027,
+    "min_task_time": 19.207226786428343,
+    "max_task_time": 26.277046724576124,
+    "task_steps": 22
+  }
+}
