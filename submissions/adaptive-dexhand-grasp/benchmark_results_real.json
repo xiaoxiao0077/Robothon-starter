@@ -1,0 +1,20 @@
+{
+  "closed_loop": {
+    "n_trials": 128,
+    "successes": 126,
+    "success_rate": 0.984375,
+    "wilson_ci_lower": 0.9448190233201829,
+    "wilson_ci_upper": 0.9448190233201829,
+    "mean_ball_lift": 0.05344117235867545,
+    "mean_touch_force": 0.3950459088294795
+  },
+  "open_loop": {
+    "n_trials": 128,
+    "successes": 0,
+    "success_rate": 0.0,
+    "wilson_ci_lower": 0,
+    "wilson_ci_upper": 0.0,
+    "mean_ball_lift": 0,
+    "mean_touch_force": 0
+  }
+}
