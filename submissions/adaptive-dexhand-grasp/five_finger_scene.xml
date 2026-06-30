@@ -1,0 +1,125 @@
+<mujoco model="five_finger_v4">
+  <compiler angle="radian"/>
+  <option timestep="0.002" gravity="0 0 -9.81"/>
+  <default><geom condim="4" friction="2.0 0.01 0.001"/><joint damping="0.5"/></default>
+  <visual><global offwidth="1280" offheight="720"/></visual>
+  
+  <worldbody>
+    <geom name="floor" type="plane" size="1 1 0.01" rgba="0.3 0.5 0.3 1"/>
+    
+    <!-- 球 -->
+    <body name="ball" pos="0 0 0.35">
+      <joint name="ball_z" type="slide" axis="0 0 1" range="0 1"/>
+      <geom type="sphere" size="0.025" rgba="0.9 0.2 0.2 1" mass="0.05"/>
+      <site name="ball_site" pos="0 0 0"/>
+    </body>
+    
+    <!-- 手掌 -->
+    <body name="palm" pos="0 0 0.40">
+      <geom type="box" size="0.035 0.04 0.008" rgba="0.7 0.55 0.4 1" contype="0" conaffinity="0"/>
+      
+      <!-- 拇指（右侧） -->
+      <body name="thumb_b" pos="0.035 0.02 -0.008">
+        <joint name="t_j1" type="hinge" axis="0 1 0" range="0 1.5"/>
+        <geom type="capsule" fromto="0 0 0 0.02 0 -0.03" size="0.007" rgba="0.7 0.55 0.4 1"/>
+        <body name="thumb_m" pos="0.02 0 -0.03">
+          <joint name="t_j2" type="hinge" axis="0 1 0" range="0 1.2"/>
+          <geom type="capsule" fromto="0 0 0 0.015 0 -0.025" size="0.006" rgba="0.7 0.55 0.4 1"/>
+          <body name="thumb_t" pos="0.015 0 -0.025">
+            <joint name="t_j3" type="hinge" axis="0 1 0" range="0 1.0"/>
+            <geom type="capsule" fromto="0 0 0 0.01 0 -0.02" size="0.005" rgba="0.7 0.55 0.4 1"/>
+            <site name="t_site" pos="0.01 0 -0.02"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- 食指 -->
+      <body name="index_b" pos="0.02 0.025 -0.008">
+        <joint name="i_j1" type="hinge" axis="0 1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" rgba="0.7 0.55 0.4 1"/>
+        <body name="index_m" pos="0 0 -0.03">
+          <joint name="i_j2" type="hinge" axis="0 1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" rgba="0.7 0.55 0.4 1"/>
+          <body name="index_t" pos="0 0 -0.025">
+            <joint name="i_j3" type="hinge" axis="0 1 0" range="0 1.5"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.02" size="0.004" rgba="0.7 0.55 0.4 1"/>
+            <site name="i_site" pos="0 0 -0.02"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- 中指 -->
+      <body name="middle_b" pos="0.005 0.025 -0.008">
+        <joint name="m_j1" type="hinge" axis="0 1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" rgba="0.7 0.55 0.4 1"/>
+        <body name="middle_m" pos="0 0 -0.03">
+          <joint name="m_j2" type="hinge" axis="0 1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" rgba="0.7 0.55 0.4 1"/>
+          <body name="middle_t" pos="0 0 -0.025">
+            <joint name="m_j3" type="hinge" axis="0 1 0" range="0 1.5"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.02" size="0.004" rgba="0.7 0.55 0.4 1"/>
+            <site name="m_site" pos="0 0 -0.02"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- 无名指 -->
+      <body name="ring_b" pos="-0.01 0.025 -0.008">
+        <joint name="r_j1" type="hinge" axis="0 1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" rgba="0.7 0.55 0.4 1"/>
+        <body name="ring_m" pos="0 0 -0.03">
+          <joint name="r_j2" type="hinge" axis="0 1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" rgba="0.7 0.55 0.4 1"/>
+          <body name="ring_t" pos="0 0 -0.025">
+            <joint name="r_j3" type="hinge" axis="0 1 0" range="0 1.5"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.02" size="0.004" rgba="0.7 0.55 0.4 1"/>
+            <site name="r_site" pos="0 0 -0.02"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- 小指 -->
+      <body name="pinky_b" pos="-0.025 0.025 -0.008">
+        <joint name="p_j1" type="hinge" axis="0 1 0" range="0 2"/>
+        <geom type="capsule" fromto="0 0 0 0 0 -0.03" size="0.006" rgba="0.7 0.55 0.4 1"/>
+        <body name="pinky_m" pos="0 0 -0.03">
+          <joint name="p_j2" type="hinge" axis="0 1 0" range="0 1.8"/>
+          <geom type="capsule" fromto="0 0 0 0 0 -0.025" size="0.005" rgba="0.7 0.55 0.4 1"/>
+          <body name="pinky_t" pos="0 0 -0.025">
+            <joint name="p_j3" type="hinge" axis="0 1 0" range="0 1.5"/>
+            <geom type="capsule" fromto="0 0 0 0 0 -0.02" size="0.004" rgba="0.7 0.55 0.4 1"/>
+            <site name="p_site" pos="0 0 -0.02"/>
+          </body>
+        </body>
+      </body>
+    </body>
+    
+    <camera name="overview" pos="0 -0.8 0.8" xyaxes="1 0 0 0 0.5 0.85" fovy="55"/>
+  </worldbody>
+  
+  <actuator>
+    <position name="a_t1" joint="t_j1" kp="20" ctrlrange="0 1.5"/>
+    <position name="a_t2" joint="t_j2" kp="20" ctrlrange="0 1.2"/>
+    <position name="a_t3" joint="t_j3" kp="20" ctrlrange="0 1.0"/>
+    <position name="a_i1" joint="i_j1" kp="20" ctrlrange="0 2"/>
+    <position name="a_i2" joint="i_j2" kp="20" ctrlrange="0 1.8"/>
+    <position name="a_i3" joint="i_j3" kp="20" ctrlrange="0 1.5"/>
+    <position name="a_m1" joint="m_j1" kp="20" ctrlrange="0 2"/>
+    <position name="a_m2" joint="m_j2" kp="20" ctrlrange="0 1.8"/>
+    <position name="a_m3" joint="m_j3" kp="20" ctrlrange="0 1.5"/>
+    <position name="a_r1" joint="r_j1" kp="20" ctrlrange="0 2"/>
+    <position name="a_r2" joint="r_j2" kp="20" ctrlrange="0 1.8"/>
+    <position name="a_r3" joint="r_j3" kp="20" ctrlrange="0 1.5"/>
+    <position name="a_p1" joint="p_j1" kp="20" ctrlrange="0 2"/>
+    <position name="a_p2" joint="p_j2" kp="20" ctrlrange="0 1.8"/>
+    <position name="a_p3" joint="p_j3" kp="20" ctrlrange="0 1.5"/>
+  </actuator>
+  
+  <sensor>
+    <touch name="t_touch" site="t_site"/>
+    <touch name="i_touch" site="i_site"/>
+    <touch name="m_touch" site="m_site"/>
+    <touch name="r_touch" site="r_site"/>
+    <touch name="p_touch" site="p_site"/>
+  </sensor>
+</mujoco>
