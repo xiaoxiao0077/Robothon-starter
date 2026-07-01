@@ -1,5 +1,62 @@
-outputs/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# MuJoCo
+MUJOCO_LOG.TXT
+*.mjlog
+
+# Video files (keep only final versions)
+*.mp4
+!adaptive_grasp_v3.mp4
+!demo.mp4
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
 .DS_Store
-.env
+Thumbs.db
+
+# Logs
+*.log
+
+# Test outputs
+test_results_*.json
+benchmark_*.json
+!benchmark_results.json
+
+# Render outputs
+render_*.png
+render_*.mp4
+
+# Check files
+check_*.png
+check_*.json
