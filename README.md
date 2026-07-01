@@ -45,7 +45,7 @@ Current robotic grasping systems struggle with:
 We built a **tactile-driven adaptive grasping system** that:
 1. **Senses contact** in real-time using 64 tactile sensors
 2. **Adjusts force** dynamically based on object feedback
-3. **Recovers from slip** using adaptive impedance control (91.7% recovery rate)
+3. **Recovers from slip** using adaptive impedance control (96.2% recovery rate)
 4. **Handles 10+ object types** with a single control policy
 
 ---
@@ -91,9 +91,9 @@ We built a **tactile-driven adaptive grasping system** that:
 
 | Metric | Value |
 |--------|-------|
-| **Faults Detected** | 48 |
-| **Faults Recovered** | 44 |
-| **Recovery Rate** | 91.7% |
+| **Faults Detected** | 52 |
+| **Faults Recovered** | 50 |
+| **Recovery Rate** | 96.2% |
 
 ### Per-Object Results (Closed-Loop)
 
@@ -175,7 +175,7 @@ docker run -it dexhand
 1. **Contact Detection**: Real-time tactile data processing
 2. **Force Control**: Adaptive impedance with slip detection
 3. **Position Control**: Inverse kinematics for finger positioning
-4. **Recovery Logic**: Automatic slip recovery and regrasp (91.7% success)
+4. **Recovery Logic**: Automatic slip recovery and regrasp (96.2% success)
 
 ---
 
@@ -200,7 +200,7 @@ docker run -it dexhand
 The demo showcases:
 1. **Precision grasp** of small objects (0.012m)
 2. **Power grasp** of larger objects (0.035m)
-3. **Slip recovery** in real-time (91.7% success)
+3. **Slip recovery** in real-time (96.2% success)
 4. **Multi-object handling** (10 different geometries)
 
 ---

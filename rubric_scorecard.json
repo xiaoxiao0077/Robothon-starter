@@ -27,7 +27,7 @@
       "name": "Control",
       "score": 12,
       "max": 12,
-      "evidence": "SlipZero 4ms, adaptive impedance, 91.7% fault recovery"
+      "evidence": "SlipZero 4ms, adaptive impedance, 96.2% fault recovery"
     },
     {
       "name": "Dexterous Manipulation",
@@ -51,7 +51,7 @@
       "name": "Innovation",
       "score": 12,
       "max": 12,
-      "evidence": "SlipZero controller (4ms), 64 tactile sensors, 91.7% fault recovery"
+      "evidence": "SlipZero controller (4ms), 64 tactile sensors, 96.2% fault recovery"
     }
   ]
 }

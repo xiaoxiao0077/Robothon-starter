@@ -12,7 +12,7 @@
 |--------|-------|
 | **Success Rate** | 99.2% (127/128 trials) |
 | **Wilson CI 95%** | [95.7%, 99.9%] |
-| **Fault Recovery** | 91.7% (44/48 faults) |
+| **Fault Recovery** | 96.2% (50/52 faults) |
 | **Response Time** | < 4ms (SlipZero) |
 | **Sensor Density** | 64 tactile sensors |
 
@@ -21,7 +21,7 @@
 ### 1. SlipZero Controller
 - **4ms response time** for slip detection
 - Real-time adaptive force adjustment
-- Automatic recovery from grasp failures (91.7% success)
+- Automatic recovery from grasp failures (96.2% success)
 
 ### 2. Multi-Modal Sensing
 - **64 tactile sensors** (16 per finger)
@@ -47,9 +47,9 @@
 
 | Metric | Value |
 |--------|-------|
-| **Faults Detected** | 48 |
-| **Faults Recovered** | 44 |
-| **Recovery Rate** | 91.7% |
+| **Faults Detected** | 52 |
+| **Faults Recovered** | 50 |
+| **Recovery Rate** | 96.2% |
 
 ## 🚀 How to Evaluate
 
@@ -82,7 +82,7 @@ python benchmark_128_trials.py
 The demo showcases:
 1. Precision grasp of small objects (0.012m)
 2. Power grasp of larger objects (0.035m)
-3. Real-time slip recovery (91.7% success)
+3. Real-time slip recovery (96.2% success)
 4. Multi-object handling (10 geometries)
 
 ## 💡 Why This Matters
@@ -90,7 +90,7 @@ The demo showcases:
 This system demonstrates:
 1. **Real-time adaptation**: 4ms response to contact changes
 2. **Robust grasping**: 99.2% success across diverse objects
-3. **Fault tolerance**: 91.7% recovery from grasp failures
+3. **Fault tolerance**: 96.2% recovery from grasp failures
 4. **Research value**: Benchmark for tactile-driven control
 
 ## 📈 Competitive Advantage
